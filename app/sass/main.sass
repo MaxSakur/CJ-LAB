@@ -1,0 +1,138 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+	scroll-behavior: smooth
+	
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: mont
+	overflow-x: hidden
+
+ul li
+	list-style-type: none
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.content
+	position: relative
+	
+.row, .container-fluid
+	padding: 0
+	margin: 0
+	
+.container, .container-fluid, .row
+	height: 100%
+
+footer
+	margin: 0  $aside-width
+	height: 100vh
+	.footer--menu
+		padding: 316px 0 178px 0
+		height: 100%
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		& li
+			padding-bottom: 35px 
+			& a
+				text-decoration: none
+				position: relative
+				color: $black
+				@include body1
+				&::before
+					content: ""
+					width: 10px
+					height: 10px
+					background-color: $black
+					border-radius: 100%
+					display: block
+					position: absolute
+					left: -20px
+					top: 20px
+					opacity: 0
+					transition: all .5s ease
+				&:hover
+					&::before
+						opacity: 1
+.text-center
+	text-align: center
+
+::selection
+	// color: #fff
+
+@import "slides"
+@import "index"
+@import "about"
+@import "products"
+@import "single-product"
+@import "contacts"
+.terms
+	@extend .footer--terms
+	display: block
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
+.col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10,
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4,
+.col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9,
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2,
+.col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7,
+.col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11,
+.col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5,
+.col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9
+	padding: 0
+
+
+.fullpage
+	width: 100%
+	position: relative
+	// display: flex
+	// flex-direction: row
+	&--slider
+		height: 100vh
+		width: 100vw	
+
+@import "media" // Всегда в конце
+
+

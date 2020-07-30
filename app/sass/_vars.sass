@@ -1,0 +1,101 @@
+$grey: #BDBDBD
+$black: #000000
+$grey_numbers: #F5F5F5
+$white: #fff    
+$blue: #276280
+$green: #7AF498
+
+// INDEX PAGE
+$toggle-slide-menu_width: 200px
+$aside-width: 180px
+$footer-width: 400px
+$hamburger-vertical-padding: 47px
+$hamburger-width: 40px
+$hamburger-area: $hamburger-vertical-padding*2 + $hamburger-width
+$aside-horizontal-padd: 40px
+$aside-vertical-padd: 47px
+// ABOUT PAGE 
+$about-top-padding: 202px
+$default-top-padding: 140px
+
+/* Мои контрольные точки*/ 
+$screens: (all, 1480, 1024, 768, 480)
+
+/* Миксин на медиа запросы*/ 
+@mixin media($property, $values)
+    @for $i from 1 through length($values)
+        @if nth($values, $i) != '' 
+            @if nth($screens, $i) == 'all' 
+                #{$property}: unquote(#{nth($values, $i)})
+            @else
+                @media screen and (max-width: nth($screens, $i) + 'px') 
+                    #{$property}: unquote(#{nth($values, $i)})
+
+
+/* Миксин на добавление шрифта */ 
+@mixin font($f-name, $f-style, $f-weight, $f-url)
+    @font-face
+        font-family: $f-name
+        font-style: $f-style
+        font-weight: $f-weight
+        src: url($f-url) format('woff2')
+
+/* Шрифты */ 
+@include font('mont', normal, 900, '../fonts/Mont/Mont-Black.ttf')
+@include font('mont', italic, 900, '../fonts/Mont/Mont-BlackItalic.ttf')
+@include font('mont', normal, 800, '../fonts/Mont/Mont-Bold.ttf')
+@include font('mont', italic, 800, '../fonts/Mont/Mont-BoldItalic.ttf')
+@include font('mont', normal, 700, '../fonts/Mont/Mont-ExtraLight.ttf')
+@include font('mont', italic, 700, '../fonts/Mont/Mont-ExtraLightItalic.ttf')
+@include font('mont', normal, 600, '../fonts/Mont/Mont-Heavy.ttf')
+@include font('mont', italic, 600, '../fonts/Mont/Mont-HeavyItalic.ttf')
+@include font('mont', normal, 500, '../fonts/Mont/Mont-Light.ttf')
+@include font('mont', italic, 500, '../fonts/Mont/Mont-LightItalic.ttf')
+@include font('mont', normal, 400, '../fonts/Mont/Mont-Regular.ttf')
+@include font('mont', italic, 400, '../fonts/Mont/Mont-RegularItalic.ttf')
+@include font('mont', normal, 300, '../fonts/Mont/Mont-SemiBold.ttf')
+@include font('mont', italic, 300, '../fonts/Mont/Mont-SemiBoldItalic.ttf')
+@include font('mont', normal, 200, '../fonts/Mont/Mont-ThinItalic.ttf')
+@include font('mont', italic, 200, '../fonts/Mont/Mont-ThinItalic.ttf')
+
+
+*
+    margin: 0
+    padding: 0
+
+
+@mixin H1
+    @include media(font-size, (48px, '', '', ''))
+    @include media(line-height, (72px, '', '', ''))
+@mixin H2
+    @include media(font-size, (32px, '', '', ''))
+    @include media(line-height, (48px, '', '', ''))
+@mixin body1
+    font-weight: normal
+    @include media(font-size, (32px, '', '', ''))
+    @include media(line-height, (48px, '', '', ''))
+@mixin body2
+    @include media(font-size, (28px, '', '', ''))
+    @include media(line-height, (34px, '', '', ''))
+@mixin body3
+    @include media(font-size, (16px, '', '', ''))
+    @include media(line-height, (24px, '', '', ''))
+@mixin link
+    @include media(font-size, (14px, '', '', ''))
+    @include media(line-height, (20px, '', '', ''))
+
+.h1
+    font-weight: 800
+    color: $black
+    padding-bottom: 35px
+    @include H1
+    &.light
+        color: $white
+        
+.body3
+    @include body3
+    &.light
+        color: $white
+
+h2.h2
+    @include H2

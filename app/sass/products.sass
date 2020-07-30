@@ -1,0 +1,202 @@
+@import './_vars'
+
+
+#products
+    .full-hight-img
+        height: 100vh
+        width: 100%
+    .list-with-header
+        position: relative
+        height: 100%
+        justify-content: center
+        display: flex
+        flex-direction: column
+        & ul
+            padding-left: 25px
+            li
+                list-style-type: disc
+
+    .content
+        padding-top: 0
+    .h1
+        position: relative
+        font-weight: 800
+        @include H1
+    .body1
+        @include body1
+    .body3
+        @include body3
+    & .screen
+        height: 100vh
+        display: flex
+        overflow: hidden
+        flex-direction: column
+        justify-content: center
+        padding: 0 180px
+    .shadow
+        font-size: 400px
+        position: absolute
+        left: -120px
+        bottom: 80px
+        z-index: -1
+        color: $grey
+        opacity: .3
+        font-weight: 400
+
+
+    // FIRST SCREEN
+    & .first-screen
+        width: 100%
+        height: 100vh
+        background-image: url('../img/products/section-1.jpg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        justify-content: flex-start
+        & .text--content
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            height: 100%
+            padding-bottom: 25vh
+
+
+    // SECOND SCREEN
+    & .second-screen
+        & .center-content
+            display: flex
+            height: 100%
+            flex-direction: column
+            justify-content: center
+           
+    // THIRD SCREEN
+    & .third-screen
+        display: flex
+        flex-direction: column
+        justify-content: center
+        & .count
+            display: flex
+            align-items: center
+            height: 100%
+            width: 100%
+            &-box
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                text-align: center
+                &--header
+                    @include body3
+                &--number
+                    font-size: 80px
+                    padding: 40px 0
+    // FOURTH SCREEN
+    & .fourth-screen
+
+    // FIFTH SCREEN
+    & .fifth-screen
+        @extend .first-screen
+        background-image: url('../img/products/3.jpg')
+
+    // SIXTH SCREEN
+    & .sixth-screen
+        & .list-with-header
+            & ul 
+                padding-left: 10px
+                & li
+                    list-style-type: none
+
+    // SEVENTH SCREEN
+    & .seventh-screen
+        @extend .third-screen
+        & .count-box--image
+            padding-bottom: 55px
+        & .count-box--footer
+            width: 200px
+
+    // EIGHT SCREEN
+    & .eight-screen
+        & button
+            width: 200px
+            background-color: transparent
+            border: 1px solid $grey
+            padding: 13px 45px
+            border-radius: 30px
+            margin-top: 35px
+
+
+// UPDATE SLIDER 
+
+$height: 500px
+$slider-dot-size: 40px
+$grey-line-margin: 140px
+
+.main--slider--container
+    display: flex
+
+.line
+    width: 100%
+    height: 1px
+    background-color: grey
+    margin-top: -$grey-line-margin
+
+.glide
+    display: flex
+    height: 100vh
+    &__track
+
+        height: 100%
+    &__slides
+        height: 100vh
+        & li
+            display: flex
+            align-items: center
+            position: relative
+            &::before
+                content: url('../img/products/slider/dot.png')
+                height: $slider-dot-size
+                width: $slider-dot-size
+                position: absolute
+                bottom: $grey-line-margin - $slider-dot-size/3
+                left: 50%
+                margin: auto
+           
+            & .slide__content
+                display: flex
+                flex-direction: row
+                justify-content: center
+                width: 100%
+                position: relative
+                &--text
+                    display: flex
+                    z-index: 2
+                    width: $height
+                    flex-direction: column
+                    height: $height
+                    margin-left: -$height * .8
+                    justify-content: center
+                    &-header
+                        font-weight: 600
+                        @include H1
+                    &-body
+                        padding: 20px 0
+                    & a 
+                        color: $black
+                        text-decoration: none
+                    &-button
+                        @extend .slide__content--text-header
+
+                &--image
+                    position: fixed
+                    height: $height
+                    // background: #000
+                    // left: 400px
+                    // width: 100%
+                    & img
+                        z-index: -1
+                        position: abosolute
+                        height: 100%
+                        // width: 800px
+
+            
+                

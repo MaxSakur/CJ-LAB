@@ -1,0 +1,241 @@
+@import './_vars'
+
+
+// TOGGLE MENU SETTINGS
+#index-hamburger-menu
+    position: absolute
+    height: 100%
+    transition: all .2s ease
+    right: -(5*$aside-width)
+    top: 0
+    opacity: 0
+    width: 55vw
+    background-color: $black
+    z-index: -1
+    display: flex
+    flex-direction: column
+    padding-left: 110px
+    & ul
+        padding-top: 316px
+        & li
+            margin-bottom: 36px
+            & a
+                text-decoration: none
+                color: $white
+                @include body2
+
+//  BG IMAGES
+.slides-container
+    & .slide
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+        padding: 0 $aside-width
+        &:nth-child(odd)
+            & .content .h2
+                color: $white
+        &:nth-child(even)
+            & .content .h2
+                color: $black
+        &#slide-1
+            background-image: url('./../img/index-bg/index-1bg.jpg')
+        &#slide-2
+            background-image: url('./../img/index-bg/index-2bg.jpg')
+        &#slide-3
+            background-image: url('./../img/index-bg/index-5bg.jpg')
+        &#slide-4
+            background-image: url('./../img/index-bg/index-3bg.jpg')
+        &#slide-5
+            background-image: url('./../img/index-bg/index-4bg.jpg')
+        & .content
+            padding: 316px 0 178px 0
+            height: 100%
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            &.top-content
+                justify-content: flex-start
+            &.bottom-content
+                justify-content: flex-end
+
+// ASIDE
+aside
+    position: fixed
+    right: 0
+    top: 0
+    z-index: 999
+    width: $aside-width
+    border-left: 1px solid $white
+    height: 100%
+    & .hamburger
+        position: absolute
+        right: $aside-width/2 - $hamburger-width/2
+        top: $hamburger-vertical-padding
+        width: $hamburger-width
+        cursor: pointer
+        z-index: 99
+        & .line
+            height: 2px
+            margin-top: $hamburger-width/4
+            background-color: $white
+            width: 100%
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease
+        &.pressed
+            & .line
+                opacity: 1
+                transform: rotate(45deg) translate(-11px, -7.5px)
+                background: $white
+            & .line:nth-last-child(3)
+                opacity: 0
+                transform: rotate(0deg) scale(0.2, 0.2)
+            & .line:nth-last-child(2)
+                transform: rotate(-45deg) translate(0, -2px)
+            & ~ .aside--content #index-hamburger-menu
+                right: $aside-width
+                opacity: 1
+                z-index: 11
+            & ~ .aside--content
+                background-color: $black
+                & .buttons 
+                    & span svg path
+                        stroke: $black
+                    & #lang
+                        display: flex
+                        flex-direction: column
+                        border: 1px solid $grey
+                        border-radius: 30px
+                        width: 62px
+                        overflow: hidden
+                        & button
+                            width: 60px
+                            height: 60px
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                            border-radius: 100%
+                            text-decoration: none
+                            background-color: transparent
+                         
+                            transition: all .5s ease
+                            & a
+                                color: $white
+                            &.choosen
+                                display: block
+                                background-color: $white
+                                & a
+                                    color: $black
+                        &.close
+                            background-color: #fff
+                            & button
+                                height: 0
+                                
+                                &.choosen
+                                    height: 60px
+                        &.open
+                            background-color: transparent
+                    & .arrow
+                        display: none !important
+                & .page--name p
+                    color: $white
+    & .aside--content
+        padding-top: $hamburger-area
+        display: flex
+        height: 100%
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        transition: all 1s ease
+    & .buttons
+        display: flex
+        flex-direction: column
+        padding-bottom: 38px
+        height: 200px
+        justify-content: flex-end
+        & #lang
+            display: none
+            & a
+                text-decoration: none
+        & .arrow
+            display: flex
+        & span
+            width: 60px
+            height: 60px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 100%
+            margin: 12px 0
+            border: 1px solid $grey
+            & svg 
+                fill: none
+                & path
+                    fill: none
+                    stroke: $grey
+            &:hover
+                background-color: $grey
+                & path
+                    stroke: $black
+            &:active
+                border: 1px solid $black
+                background-color: $black
+                & path
+                    stroke: $white
+
+    // PAGE NAME
+    & .page--name
+        display: flex
+        flex: 1
+        justify-content: center
+        align-items: center
+        & p
+            transform: rotate(270deg)
+            color: $white
+
+// SIDEBAR
+section.sidebar
+    @extend aside
+    right: inherit
+    left: 0
+    padding: $aside-vertical-padd $aside-horizontal-padd 
+    z-index: 11
+    border: none
+    & .logo
+        width: $aside-width - $aside-horizontal-padd *2
+        height: $aside-width - $aside-horizontal-padd *2
+        background-image: url(../img/logo/logo-white.svg)
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat     
+        &_dark
+            @extend .logo
+            background-image: url(../img/logo/logo-dark.svg)   
+
+// FOOTER    
+.footer
+    height: 100%
+    background-color: $white
+    &--bg
+        height: 100%
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+        background-image: url('./../img/index-bg/index-4bg.jpg')
+    & .content
+        & ul li 
+            margin-bottom: 36px
+            & a
+                text-decoration: none
+                color: $black
+                @include body2
+    &--terms
+        position: absolute
+        bottom: 41px
+        left: 61px 
+        z-index: 999
+        display: none
+        & a
+            margin-right: 31px
+            color: $grey
+            text-decoration: none
+            @include link
+                    

@@ -1,0 +1,46 @@
+@import "vars"
+
+#contacts
+    & .content
+        padding-top: 0
+    & .img--content  
+        width: 100%
+        height: 100vh
+        background-image: url('../img/contacts.jpg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        justify-content: flex-start
+    & .text--content
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        & h1
+            font-weight: 800
+            @include H1
+        & .sub--header
+            padding-bottom: 28px
+        & a
+            display: flex
+            align-items: center
+            padding-top: 28px
+            & p
+                text-transform: uppercase
+                padding-left: 12px
+                color: $black
+            & svg
+                & circle
+                    fill: transparent
+                    stroke: $grey
+                & path
+                    fill: transparent
+                    stroke: $black
+                &:hover
+                    fill: $grey
+                    & circle
+                        fill: $grey
+                    & path
+                        stroke: $black 
+
+

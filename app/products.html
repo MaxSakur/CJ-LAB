@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>CJ LAB - About Us</title>
+  <meta name="description" content="" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:image" content="path/to/image.jpg" />
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png" />
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000" />
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000" />
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
+  <!-- Required Core stylesheet -->
+
+  <link rel="stylesheet" href="css/main.min.css" />
+  <script src="libs/glide/glide.min.js"></script>
+
+</head>
+
+<body id="products">
+  <section class="sidebar">
+    <img src="./img/logo/logo-dark.svg" id="logo" alt="customer journey lab logo" />
+  </section>
+  <div class="main--slider--container">
+    <div class="glide" id="glide1">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+
+          <!-- SLIDE 1 -->
+          <li class="glide__slide slide__1">
+            <div class="slide__content">
+              <div class="slide__content--text">
+                <p class="slide__content--text-header">
+                  дизайн-мышление
+                </p>
+                <p class="slide__content--text-body">
+                  Быстро меняющийся современный мир,
+                  усложняющиеся связи между продуктами и сервисами разных индустрий,
+                  повышение требований покупателей — все это требует новых подходов
+                  в постоянном исследовании спроса и быстрого реагирования на
+                  появление новых потребностей.
+                </p>
+                
+                <a href="single-product.html">
+                  <p class="slide__content--text-button">more</p>
+                </a>
+              </div>
+              <div class="slide__content--image">
+                <img src="img/products/slider/1.jpg" alt="">
+              </div>
+            </div>
+          </li>
+
+          <!-- SLIDE 2 -->
+          <li class="glide__slide slide__2">
+            <div class="slide__content">
+              <div class="slide__content--text">
+                <p class="slide__content--text-header">
+                  дизайн-мышление
+                </p>
+                <p class="slide__content--text-body">
+                  Быстро меняющийся современный мир,
+                  усложняющиеся связи между продуктами и сервисами разных индустрий,
+                  повышение требований покупателей — все это требует новых подходов
+                  в постоянном исследовании спроса и быстрого реагирования на
+                  появление новых потребностей.
+                </p>
+                <a href="single-product.html">
+                  <p class="slide__content--text-button">more</p>
+                </a>
+              </div>
+              <div class="slide__content--image">
+                <img src="img/products/slider/2.jpg" alt="">
+              </div>
+            </div>
+          </li>
+
+
+          <!-- SLIDE 3 -->
+          <li class="glide__slide slide__3">
+              <div class="slide__content">
+              <div class="slide__content--text">
+                <p class="slide__content--text-header">
+                  дизайн-мышление
+                </p>
+                <p class="slide__content--text-body">
+                  Быстро меняющийся современный мир,
+                  усложняющиеся связи между продуктами и сервисами разных индустрий,
+                  повышение требований покупателей — все это требует новых подходов
+                  в постоянном исследовании спроса и быстрого реагирования на
+                  появление новых потребностей.
+                </p>
+                <a href="single-product.html">
+                  <p class="slide__content--text-button">more</p>
+                </a>
+              </div>
+              <div class="slide__content--image">
+                <img src="img/products/slider/3.jpg" alt="">
+              </div>
+            </div>
+          </li>
+
+
+          <!-- SLIDE 4 -->
+          <li class="glide__slide slide__4">
+            <div class="slide__content">
+              <div class="slide__content--text">
+                <p class="slide__content--text-header">
+                  дизайн-мышление
+                </p>
+                <p class="slide__content--text-body">
+                  Быстро меняющийся современный мир,
+                  усложняющиеся связи между продуктами и сервисами разных индустрий,
+                  повышение требований покупателей — все это требует новых подходов
+                  в постоянном исследовании спроса и быстрого реагирования на
+                  появление новых потребностей.
+                </p>
+                <a href="single-product.html">
+                  <p class="slide__content--text-button">more</p>
+                </a>
+              </div>
+              <div class="slide__content--image">
+                <img src="img/products/slider/4.jpg" alt="">
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="line"></div>
+      </div>
+      
+    </div>
+    
+   
+  </div>
+
+
+  <script>
+    new Glide("#glide1", {
+      type: "slider",
+      startAt: 0,
+      rewind: false,
+      focusAt: 'center',
+      perView: 1.2,
+      gap: 0
+      // perView: 1,
+      // breakpoints: {
+      //   800: {
+      //     perView: 1,
+      //   },
+      // },
+    }).mount();
+  </script>
+
+  <!-- FOOTER TERMS -->
+  <div class="terms">
+    <a href="#">terms of use</a>
+    <a href="#">made by thehappy.studio</a>
+  </div>
+  <!-- END -->
+  </div>
+
+  <!-- ASIDE -->
+  <aside>
+    <div class="hamburger" id="index-hamburger">
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="aside--content">
+      <!-- TOGGLE MENU -->
+      <div id="index-hamburger-menu">
+        <ul>
+          <li><a href="/index.html">home</a></li>
+          <li><a href="/about.html">о нас</a></li>
+          <li><a href="/products.html">продукты</a></li>
+          <li><a href="/contacts.html">контакты</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <script src="js/scripts.min.js"></script>
+</body>
+
+</html>
