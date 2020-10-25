@@ -1,4 +1,4 @@
-var $window = $(window);
+var $window = $("#main");
 var $document = $(document);
 var $navButtons = $("button");
 
@@ -15,9 +15,17 @@ function delay(f, ms) {
   };
 }
 
+$("#glide").owlCarousel({
+  items: 1,
+  dots: true,
+  loop: false,
+  lazyload: true,
+});
+
 $("#carouselBrands").owlCarousel({
   items: 5,
   dots: false,
+  center: true,
   autoplay: true,
   lazyload: true,
   autoplaySpeed: 1000,
@@ -49,7 +57,7 @@ goToSlide($currentSlide);
  * */
 
 $window.on("resize", onResize).resize();
-$window.on("mousewheel DOMMouseScroll", onMouseWheel);
+$window.on("mousewheel DOMMouseScroll ", onMouseWheel);
 $document.on("keydown", onKeyDown);
 $navButtons.on("click", onNavButtonClick);
 $navGoPrev.on("click", goToPrevSlide);
@@ -142,13 +150,12 @@ function goToPrevSlide() {
 
 function changeLogoColor(count) {
   const aliquot2 = count % 2;
-  $("#logo").attr("class", aliquot2 ? "logo_dark" : "logo");
-
+  // $("#logo").attr("class", aliquot2 ? "logo_dark" : "logo");
   const condition = $slides.length === count + 1;
   const sidebarBgColor = condition ? "#fff" : "transparent";
   $("section.sidebar").attr("style", `background-color: ${sidebarBgColor}`);
   $("#terms").attr("style", `display: ${condition ? "block" : "none"}`);
-  $("#aside").attr("class", `${aliquot2 ? "checked" : ""}`);
+  // $("#aside").attr("class", `${aliquot2 ? "checked" : ""}`);
 }
 
 /*
@@ -169,19 +176,21 @@ function goToSlide($slide) {
     //FADING
     TweenLite.fromTo(
       $slidesContainer,
-      1, {
-        autoAlpha: 0.6
-      }, {
+      1,
+      {
+        autoAlpha: 0.6,
+      },
+      {
         autoAlpha: 1,
         ease: "elastic",
-        duration: 2
+        duration: 2,
       }
     );
 
     //Sliding to current slide
     TweenLite.to($slidesContainer, 0, {
       scrollTo: {
-        y: pageHeight * $currentSlide.index()
+        y: pageHeight * $currentSlide.index(),
       },
       onComplete: onSlideChangeEnd,
       onCompleteScope: this,
@@ -222,7 +231,7 @@ function onResize(event) {
     //The current slide should be always on the top
     TweenLite.set($slidesContainer, {
       scrollTo: {
-        y: pageHeight * $currentSlide.index()
+        y: pageHeight * $currentSlide.index(),
       },
     });
   }
@@ -232,9 +241,18 @@ const indexHamburger = document.getElementById("index-hamburger");
 
 function classListValue(value, clicked) {
   document.getElementById("index-hamburger").classList = value;
-  document.getElementById("index-hamburger-menu").classList = clicked ?
-    "closed" :
-    "shown";
+  document.getElementById("index-hamburger-menu").classList = clicked
+    ? "closed"
+    : "shown";
+}
+
+const hamburger = document.getElementsByClassName("hamburger");
+console.log(hamburger, "HAMBURGER");
+for (let i = 0; i < hamburger.length; i++) {
+  console.log("i", i);
+  // hamburger[i].onClick = () => {
+  //   console.log("this is i =>", i);
+  // };
 }
 
 indexHamburger.addEventListener("click", () => {
@@ -264,28 +282,26 @@ langButton.addEventListener("click", () => {
   }
 });
 
-
-
 // NEW EMPLEMENTATION OF SLIDER ANIMATION
 
-let pageCount = 0
-const scrollToAction = () => window.scrollTo(100, pageHeight * pageCount)
+let pageCount = 0;
+const scrollToAction = () => window.scrollTo(100, pageHeight * pageCount);
 const bluringCurrentSliderItem = () => {
-  $(`.fullpage--slider:eq(${pageCount})`).css("filter", "blur(3px)")
-}
+  $(`.fullpage--slider:eq(${pageCount})`).css("filter", "blur(3px)");
+};
 
 $window.on("mousewheel DOMMouseScroll", (event) => {
   const delta =
     event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail;
 
   if (delta < -1) {
-    bluringCurrentSliderItem()
-    pageCount++
-    scrollToAction(pageCount)
+    bluringCurrentSliderItem();
+    pageCount++;
+    scrollToAction(pageCount);
   } else if (delta > 1) {
-    bluringCurrentSliderItem()
-    pageCount--
-    scrollToAction(pageCount)
+    bluringCurrentSliderItem();
+    pageCount--;
+    scrollToAction(pageCount);
   }
 });
 
@@ -293,16 +309,118 @@ document.onkeydown = checkKey;
 
 function checkKey(e) {
   e = e || window.event;
-  if (e.keyCode == '38') {
-    bluringCurrentSliderItem()
+  if (e.keyCode == "38") {
+    bluringCurrentSliderItem();
     // up arrow
-    pageCount--
-    scrollToAction(pageCount)
-  } else if (e.keyCode == '40') {
-    bluringCurrentSliderItem()
+    pageCount--;
+    scrollToAction(pageCount);
+  } else if (e.keyCode == "40") {
+    bluringCurrentSliderItem();
     // down arrow
-    pageCount++
-    scrollToAction(pageCount)
+    pageCount++;
+    scrollToAction(pageCount);
   }
+}
 
+// SWIPING EVENT END
+
+// TOGGLE FOR HAMBURGER
+const pageID = document.getElementById("products");
+if (pageID) {
+  const owl = $(".owl-carousel");
+  owl.owlCarousel();
+  document.getElementById("products").addEventListener("keydown", (event) => {
+    if (event.isComposing || event.keyCode === 229) {
+      return;
+    }
+
+    if (event.keyCode === 39) {
+      owl.trigger("next.owl.carousel");
+    }
+    if (event.keyCode === 37) {
+      owl.trigger("prev.owl.carousel", [300]);
+    }
+    return event;
+  });
+
+  // SWIPING EVENT
+  window.onload = function () {
+    (function (d) {
+      var ce = function (e, n) {
+          var a = document.createEvent("CustomEvent");
+          a.initCustomEvent(n, true, true, e.target);
+          e.target.dispatchEvent(a);
+          a = null;
+          return false;
+        },
+        nm = true,
+        sp = {
+          x: 0,
+          y: 0,
+        },
+        ep = {
+          x: 0,
+          y: 0,
+        },
+        touch = {
+          touchstart: function (e) {
+            sp = {
+              x: e.touches[0].pageX,
+              y: e.touches[0].pageY,
+            };
+          },
+          touchmove: function (e) {
+            nm = false;
+            ep = {
+              x: e.touches[0].pageX,
+              y: e.touches[0].pageY,
+            };
+          },
+          touchend: function (e) {
+            if (nm) {
+              ce(e, "fc");
+            } else {
+              var x = ep.x - sp.x,
+                xr = Math.abs(x),
+                y = ep.y - sp.y,
+                yr = Math.abs(y);
+              if (Math.max(xr, yr) > 20) {
+                ce(
+                  e,
+                  xr > yr ? (x < 0 ? "swl" : "swr") : y < 0 ? "swu" : "swd"
+                );
+              }
+            }
+            nm = true;
+          },
+          touchcancel: function (e) {
+            nm = false;
+          },
+        };
+      for (var a in touch) {
+        d.addEventListener(a, touch[a], false);
+      }
+    })(document);
+    //EXAMPLE OF USE
+    const hadnleswipeLeft = function (e) {
+      owl.trigger("next.owl.carousel");
+    };
+    const hadnleswipeRight = function (e) {
+      owl.trigger("prev.owl.carousel", [300]);
+    };
+
+    document.body.addEventListener("swl", hadnleswipeLeft, false);
+    document.body.addEventListener("swr", hadnleswipeRight, false);
+  };
+  document.getElementById("index-hamburger").addEventListener("click", () => {
+    const hamburger = document.getElementById("index-hamburger");
+    const filter = "pressed";
+    if (hamburger.classList.contains(filter)) {
+      $(".carousel").css("z-index", -1);
+    } else {
+      $(".carousel").css("z-index", 1);
+    }
+  });
+} else {
+  console.log(pageID, "pageID");
 }

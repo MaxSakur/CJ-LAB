@@ -1,72 +1,155 @@
 @import './_vars'
 
-
-// TOGGLE MENU SETTINGS
-#index-hamburger-menu
-    position: absolute
-    height: 100%
-    transition: all .2s ease
-    right: -(5*$aside-width)
-    top: 0
-    opacity: 0
-    width: 55vw
-    background-color: $black
-    z-index: -1
-    display: flex
-    flex-direction: column
-    padding-left: 110px
-    & ul
-        padding-top: 316px
-        & li
-            margin-bottom: 36px
-            & a
-                text-decoration: none
-                color: $white
-                @include body2
-
 //  BG IMAGES
 .slides-container
     & .slide
-        background-size: cover
+        display: flex
         background-repeat: no-repeat
-        background-position: center
-        padding: 0 $aside-width
-        &:nth-child(odd)
-            & .content .h2
-                color: $white
-        &:nth-child(even)
-            & .content .h2
-                color: $black
+        & .content
+            @include media( padding, (0 $aside-width, '', '', '', 0 50px))
+        & .header
+            @include media( padding-left, ('5%', 0, 0, '', ''))
+        & .subHeader
+            @include media( padding-left, ('5%', 0, 0, '', ''))
         &#slide-1
             background-image: url('./../img/index-bg/index-1bg.jpg')
+            @include media( background-size, (contain, '', '', '', '' ))
+            @include media( background-position, (right, '', '', 100px 100px, -50px 100%))
+            & .header
+                @include media( width, ('60%', '60%', '80%', '', '', '100%'))
+            & .subHeader
+                @include media( width, ('55%', '', '', '', '100%'))
+
         &#slide-2
             background-image: url('./../img/index-bg/index-2bg.jpg')
+            @include media( background-size, (contain, '', '', '', '' ))
+            @include media( background-position, (right, '', '', '', bottom))
+            & .header
+                @include media( width, ('55%', '60%', '', '', '', '100%'))
+            & .subHeader
+                @include media( width, ('45%', '', '', '', '100%'))
+
         &#slide-3
-            background-image: url('./../img/index-bg/index-5bg.jpg')
-        &#slide-4
             background-image: url('./../img/index-bg/index-3bg.jpg')
-        &#slide-5
+            @include media( background-size, ( contain, '', '', 80%, 100%))
+            @include media( background-position, (right, '', '', '', bottom))
+            & .header
+                @include media( width, ('55%', '60%', '', '', '', '100%'))
+            & .subHeader
+                @include media( width, ('45%', '40%', '', '', '100%'))
+
+        &#slide-4
             background-image: url('./../img/index-bg/index-4bg.jpg')
+            @include media( background-size, (contain, '', '', '', '' ))
+            @include media( background-position, (right, '', '', '',  -50px 100%))
+            & .header
+                @include media( width, ('55%', '', '', '', '100%'))
+            & .subHeader
+                @include media( width, ('45%', '', '', '', '100%'))
+        &#slide-5
+            background-image: url('./../img/index-bg/index-5bg.jpg')
+            @include media( background-size, (contain, '', '', '', '' ))
+            @include media( background-position, (right, '', '', '',  0 100%))
         & .content
-            padding: 316px 0 178px 0
-            height: 100%
+            max-height: 100%
             display: flex
+            flex: 1
             flex-direction: column
-            align-items: flex-start
-            &.top-content
-                justify-content: flex-start
-            &.bottom-content
-                justify-content: flex-end
+            padding-top: 0
+            & .slide-text-container
+                flex: 1
+                display: flex
+                flex-direction: column
+                // justify-content: center
+                @include media(justify-content, (center, flex-start, '', '', ''))
+                @include media( padding-top, ('', 25vh, 30vh, '', 35vh))
+                & .h1
+                    padding-bottom: 20px
+
+// APP HEADER (ASIDE + SIDEBAR)
+.app-header
+    display: flex
+    flex-direction: row
+    min-height: 140px
+    &.fixed
+        position: fixed
+    &.absolute
+        position: absolute
+        z-index: 99
+        width: 100%
+        & aside .hamburger.pressed~.aside--content #index-hamburger-menu
+            position: absolute
+            bottom: 0
+            height: 100vh
+            // z-index: 999
+            top: 0
+            right: 0
+            left: 0
 
 // ASIDE
+aside.unbordered
+    z-index: 0
+    background-color: transparent
+    & .aside--content
+        border: none
+    & .buttons
+        display: none
+    & .page--name
+        display: none
 aside
-    position: fixed
-    right: 0
-    top: 0
+    // position: fixed
+    // right: 0
+    // top: 0
     z-index: 999
     width: $aside-width
-    border-left: 1px solid $white
     height: 100%
+    background-color: rgba(255,255,255,.10)
+
+    #index-hamburger-menu
+        position: absolute
+        height: 100%
+        // transition: all .2s ease
+        right: 0
+        top: 0
+        opacity: 0
+        width: 100vw
+        background-color: $black
+        z-index: -1
+        display: none
+        flex: 1
+        &:before
+            content: ''
+            flex: 2
+            height: 100%
+            background-image: url('./../img/index-bg/aside-image.jpg')
+            background-size: cover
+            background-position: center
+            @include media( display, ('block', '', '', '', 'none'))
+        & .menu-items
+            display: flex
+            flex-direction: column
+            justify-content: center
+            flex: 3
+            padding-left: 10vw
+            & ul
+                display: flex
+                flex-direction: column
+                flex: 2
+                align-items: flex-start
+                justify-content: flex-end
+                & li
+                    margin-bottom: 36px
+                    & a
+                        text-decoration: none
+                        color: $white
+                        @include body2
+            &--terms
+                display: flex
+                flex: 1
+                align-items: flex-end
+                & a
+                    @extend .footer--terms_item
+                    padding-bottom: 30px
     & .hamburger
         position: absolute
         right: $aside-width/2 - $hamburger-width/2
@@ -91,12 +174,14 @@ aside
             & .line:nth-last-child(2)
                 transform: rotate(-45deg) translate(0, -2px)
             & ~ .aside--content #index-hamburger-menu
-                right: $aside-width
                 opacity: 1
+                display: flex
                 z-index: 11
+
             & ~ .aside--content
                 background-color: $black
-                & .buttons 
+                & .buttons
+                    @include media( display, ('block', '', '', '', 'none'))
                     & span svg path
                         stroke: $black
                     & #lang
@@ -115,8 +200,7 @@ aside
                             border-radius: 100%
                             text-decoration: none
                             background-color: transparent
-                         
-                            transition: all .5s ease
+                            // transition: all .5s ease
                             & a
                                 color: $white
                             &.choosen
@@ -124,11 +208,16 @@ aside
                                 background-color: $white
                                 & a
                                     color: $black
+                                    // font-weight: bold
+                                    font-family: mont
+                                    // font-size: 20px
+                                    font-style: normal
+                                    font-weight: 500
                         &.close
                             background-color: #fff
                             & button
                                 height: 0
-                                
+
                                 &.choosen
                                     height: 60px
                         &.open
@@ -138,19 +227,21 @@ aside
                 & .page--name p
                     color: $white
     & .aside--content
-        padding-top: $hamburger-area
+        // padding-top: $hamburger-area
         display: flex
         height: 100%
         flex-direction: column
         justify-content: space-between
         align-items: center
-        transition: all 1s ease
+        // transition: all 1s ease
+        @include media( border-left, (1px solid #bdbdbd, '', '', '', 'none'))
     & .buttons
         display: flex
         flex-direction: column
         padding-bottom: 38px
         height: 200px
         justify-content: flex-end
+        @include media( display, ('block', '', '', '', 'none'))
         & #lang
             display: none
             & a
@@ -166,11 +257,12 @@ aside
             border-radius: 100%
             margin: 12px 0
             border: 1px solid $grey
-            & svg 
+            // transition: all 1s ease
+            & svg
                 fill: none
                 & path
                     fill: none
-                    stroke: $grey
+                    stroke: $black
             &:hover
                 background-color: $grey
                 & path
@@ -183,59 +275,72 @@ aside
 
     // PAGE NAME
     & .page--name
-        display: flex
         flex: 1
         justify-content: center
         align-items: center
+        @include media( display, ('flex', '', '', '', 'none'))
         & p
             transform: rotate(270deg)
-            color: $white
+            color: $black
 
 // SIDEBAR
 section.sidebar
-    @extend aside
+    z-index: 999
+    width: $aside-width
+    height: 100%
+    background-color: rgba(255,255,255,.10)
     right: inherit
+    background-color: transparent
     left: 0
-    padding: $aside-vertical-padd $aside-horizontal-padd 
-    z-index: 11
+    padding: $aside-vertical-padd $aside-horizontal-padd
     border: none
+    z-index: 0
     & .logo
         width: $aside-width - $aside-horizontal-padd *2
-        height: $aside-width - $aside-horizontal-padd *2
+        height: $aside-width - $aside-horizontal-padd *2.2
         background-image: url(../img/logo/logo-white.svg)
         background-size: contain
         background-position: center
-        background-repeat: no-repeat     
+        background-repeat: no-repeat
         &_dark
             @extend .logo
-            background-image: url(../img/logo/logo-dark.svg)   
+            background-image: url(../img/logo/logo-dark.svg)
 
 // FOOTER    
 .footer
     height: 100%
-    background-color: $white
-    &--bg
-        height: 100%
-        background-size: cover
-        background-repeat: no-repeat
-        background-position: center
-        background-image: url('./../img/index-bg/index-4bg.jpg')
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    padding: 20px 0
+
     & .content
-        & ul li 
-            margin-bottom: 36px
+        display: flex
+        justify-content: center
+        height: 100%
+        padding-bottom: 20px
+        & ul
+            display: flex
+            flex-direction: column
+            flex: 2
+            justify-content: flex-end
+            & li
+                margin-bottom: 36px
             & a
                 text-decoration: none
                 color: $black
                 @include body2
+
     &--terms
-        position: absolute
-        bottom: 41px
-        left: 61px 
-        z-index: 999
-        display: none
-        & a
+        z-index: 11
+        flex: 1
+        display: flex
+
+        @include media( align-items, ('flex-end', '', '', '', ''))
+        @include media( justify-content, ('', '', '', '', 'flex-end'))
+        @include media( flex-direction, ('row', '', '', '', 'column'))
+        &_item
             margin-right: 31px
             color: $grey
             text-decoration: none
             @include link
-                    

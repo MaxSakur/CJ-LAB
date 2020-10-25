@@ -18,19 +18,15 @@ $aside-vertical-padd: 47px
 $about-top-padding: 202px
 $default-top-padding: 140px
 
-/* Мои контрольные точки*/ 
-$screens: (all, 1480, 1024, 768, 480)
-
 /* Миксин на медиа запросы*/ 
 @mixin media($property, $values)
     @for $i from 1 through length($values)
-        @if nth($values, $i) != '' 
-            @if nth($screens, $i) == 'all' 
+        @if nth($values, $i) != ''
+            @if nth($screens, $i) == 'all'
                 #{$property}: unquote(#{nth($values, $i)})
             @else
-                @media screen and (max-width: nth($screens, $i) + 'px') 
+                @media screen and (max-width: nth($screens, $i) + 'px')
                     #{$property}: unquote(#{nth($values, $i)})
-
 
 /* Миксин на добавление шрифта */ 
 @mixin font($f-name, $f-style, $f-weight, $f-url)
@@ -41,39 +37,53 @@ $screens: (all, 1480, 1024, 768, 480)
         src: url($f-url) format('woff2')
 
 /* Шрифты */ 
-@include font('mont', normal, 900, '../fonts/Mont/Mont-Black.ttf')
-@include font('mont', italic, 900, '../fonts/Mont/Mont-BlackItalic.ttf')
-@include font('mont', normal, 800, '../fonts/Mont/Mont-Bold.ttf')
-@include font('mont', italic, 800, '../fonts/Mont/Mont-BoldItalic.ttf')
-@include font('mont', normal, 700, '../fonts/Mont/Mont-ExtraLight.ttf')
-@include font('mont', italic, 700, '../fonts/Mont/Mont-ExtraLightItalic.ttf')
-@include font('mont', normal, 600, '../fonts/Mont/Mont-Heavy.ttf')
-@include font('mont', italic, 600, '../fonts/Mont/Mont-HeavyItalic.ttf')
-@include font('mont', normal, 500, '../fonts/Mont/Mont-Light.ttf')
-@include font('mont', italic, 500, '../fonts/Mont/Mont-LightItalic.ttf')
+@include font('mont-black', normal, 900, '../fonts/Mont/Mont-Black.ttf')
+@include font('mont-black-italic', italic, 900, '../fonts/Mont/Mont-BlackItalic.ttf')
+@include font('mont-bold', normal, 800, '../fonts/Mont/Mont-Bold.ttf')
+@include font('mont-bold-italic', italic, 800, '../fonts/Mont/Mont-BoldItalic.ttf')
+@include font('mont-extra-light', normal, 700, '../fonts/Mont/Mont-ExtraLight.ttf')
+@include font('mont-extra-light-italic', italic, 700, '../fonts/Mont/Mont-ExtraLightItalic.ttf')
+@include font('mont-heavy', normal, 600, '../fonts/Mont/Mont-Heavy.ttf')
+@include font('mont-heavy-italic', italic, 600, '../fonts/Mont/Mont-HeavyItalic.ttf')
+@include font('mont-light', normal, 500, '../fonts/Mont/Mont-Light.ttf')
+@include font('mont-light-italic', italic, 500, '../fonts/Mont/Mont-LightItalic.ttf')
 @include font('mont', normal, 400, '../fonts/Mont/Mont-Regular.ttf')
-@include font('mont', italic, 400, '../fonts/Mont/Mont-RegularItalic.ttf')
-@include font('mont', normal, 300, '../fonts/Mont/Mont-SemiBold.ttf')
-@include font('mont', italic, 300, '../fonts/Mont/Mont-SemiBoldItalic.ttf')
-@include font('mont', normal, 200, '../fonts/Mont/Mont-ThinItalic.ttf')
-@include font('mont', italic, 200, '../fonts/Mont/Mont-ThinItalic.ttf')
-
+@include font('mont-italic', italic, 400, '../fonts/Mont/Mont-RegularItalic.ttf')
+@include font('mont-semibold', normal, 300, '../fonts/Mont/Mont-SemiBold.ttf')
+@include font('mont-semibold-italic', italic, 300, '../fonts/Mont/Mont-SemiBoldItalic.ttf')
+@include font('mont-thin', normal, 200, '../fonts/Mont/Mont-Thin.ttf')
+@include font('mont-thin-italic', italic, 200, '../fonts/Mont/Mont-ThinItalic.ttf')
 
 *
     margin: 0
     padding: 0
 
+$default-font: "mont", sans-serif
+$h1-font: "mont-bold" , sans-serif
+
+/* Мои контрольные точки*/ 
+$screens: (all, 1540, 1366, 1024 ,768, 480)
 
 @mixin H1
-    @include media(font-size, (48px, '', '', ''))
-    @include media(line-height, (72px, '', '', ''))
+    font-feature-settings: 'pnum' on, 'lnum' on
+    mix-blend-mode: normal
+    font-family: $h1-font
+    margin-bottom: 0
+    padding-bottom: 0
+    @include media(font-size, (48px, 44px, '', 26px, ''))
+    @include media(line-height, (72px,'', 60px, 39px, ''))
+
 @mixin H2
-    @include media(font-size, (32px, '', '', ''))
-    @include media(line-height, (48px, '', '', ''))
+    @include media(font-size, (32px, 28px, 24px, 18px))
+    @include media(line-height, (48px, 40px, 32px, 24px))
+@mixin body0
+    font-weight: normal
+    @include media(font-size, (48px, 44px, '', 26px, ''))
+    @include media(line-height, (72px,'', 60px, 39px, ''))
 @mixin body1
     font-weight: normal
-    @include media(font-size, (32px, '', '', ''))
-    @include media(line-height, (48px, '', '', ''))
+    @include media(font-size, (32px, 28px, '', 18px))
+    @include media(line-height, (48px, 40px, '', 24px))
 @mixin body2
     @include media(font-size, (28px, '', '', ''))
     @include media(line-height, (34px, '', '', ''))
@@ -82,7 +92,20 @@ $screens: (all, 1480, 1024, 768, 480)
     @include media(line-height, (24px, '', '', ''))
 @mixin link
     @include media(font-size, (14px, '', '', ''))
+    @include media(line-height, (21px, '', '', ''))
+@mixin asideButton
+
+    @include media(font-size, (14px, '', '', ''))
     @include media(line-height, (20px, '', '', ''))
+
+body
+    font-size: 16px
+    min-width: 320px
+    position: relative
+    line-height: 1.65
+    font-family: $default-font
+    overflow-x: hidden
+    background-color: #fff
 
 .h1
     font-weight: 800
@@ -91,7 +114,7 @@ $screens: (all, 1480, 1024, 768, 480)
     @include H1
     &.light
         color: $white
-        
+
 .body3
     @include body3
     &.light

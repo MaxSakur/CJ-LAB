@@ -1,106 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
 
-    <title>CJ LAB - Contacts</title>
-    <meta name="description" content="" />
+<head>
+  <meta charset="utf-8" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+  <title>CJ LAB - Contacts</title>
+  <meta name="description" content="" />
 
-    <meta property="og:image" content="path/to/image.jpg" />
-    <link
-      rel="shortcut icon"
-      href="img/favicon/favicon.ico"
-      type="image/x-icon"
-    />
-    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="img/favicon/apple-touch-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="img/favicon/apple-touch-icon-114x114.png"
-    />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#000" />
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#000" />
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
+  <meta property="og:image" content="path/to/image.jpg" />
+  <link rel="shortcut icon" href="img/favicon/favicon.ico"
+    type="image/x-icon" />
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="72x72"
+    href="img/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="img/favicon/apple-touch-icon-114x114.png" />
 
-    <link rel="stylesheet" href="css/main.min.css" />
-  </head>
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000" />
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000" />
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
 
-  <body id="contacts">
+  <link rel="stylesheet" href="css/main.min.css" />
+</head>
+
+<body id="contacts">
+
+  <!-- HEADER -->
+  <div class="app-header absolute">
     <section class="sidebar">
-      <img
-        src="./img/logo/logo-white.svg"
-        id="logo"
-        alt="customer journey lab logo"
-      />
+      <img src="./img/logo/logo-white.svg" id="logo"
+        alt="customer journey lab logo_dark" />
     </section>
 
-    <!-- MAIN CONTENT -->
-    <div class="content">
-      <div class="screen first-screen">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="img--content"></div>
-            </div>
-            <div class="col-md-offset-1 col-md-6">
-              <div class="text--content">
-                <h1>Contact us</h1>
-                <p class="sub--header">Have a question? Send us a message.</p>
-                <p>
-                  01008, Kyiv, 5 Hrushevskoho Str. <br />
-                  cjlab@gmail.com <br />
-                  +38 099 780 33 05
-                </p>
-                <a target="_blank" href="mailto:cjlab@gmail.com ">
-                  <svg width="59" height="59">
-                    <circle
-                      cx="29.5"
-                      cy="29.5"
-                      r="29"
-                      transform="rotate(-90 29.5 29.5)"
-                    />
-                    <path
-                      d="M28 34L32 29.5L28 25"
-                      stroke-width="1.5"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-
-                  <p>send a message</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FOOTER TERMS -->
-      <div class="terms">
-        <a href="#"><img src="./img/social/fb.svg" alt="" /></a>
-        <a href="#"><img src="./img/social/ins.svg" alt="" /></a>
-        <a href="#"><img src="./img/social/link.svg" alt="" /></a>
-        <a href="#"><img src="./img/social/telegr.svg" alt="" /></a>
-      </div>
-      <!-- END -->
-    </div>
-
-    <!-- ASIDE -->
-    <aside>
+    <aside id="aside" class="unbordered">
       <div class="hamburger" id="index-hamburger">
         <div class="lines">
           <div class="line"></div>
@@ -111,15 +50,106 @@
       <div class="aside--content">
         <!-- TOGGLE MENU -->
         <div id="index-hamburger-menu">
-          <ul>
-            <li><a href="/index.html">home</a></li>
-            <li><a href="/about.html">о нас</a></li>
-            <li><a href="/products.html">продукты</a></li>
-            <li><a href="/contacts.html">контакты</a></li>
-          </ul>
+          <div class="menu-items">
+            <ul>
+              <li><a href="index.html">главная</a></li>
+              <li><a href="about.html">о нас</a></li>
+              <li><a href="products.html">продукты</a></li>
+              <li><a href="contacts.html">контакты</a></li>
+            </ul>
+            <div class="menu-items--terms">
+              <a href="#">terms of use</a>
+              <a href="#">made by thehappy.studio</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE NAME -->
+        <div class="page--name">
+          <p id="pageName">home</p>
+        </div>
+
+        <!-- BUTTONS SECTION -->
+        <div class="buttons">
+          <div class="close" id="lang">
+            <button class="go-prev">
+              <a href="#">
+                <p>RU</p>
+              </a>
+            </button>
+            <button class="go-prev choosen">
+              <a href="#">
+                <p>EN</p>
+              </a>
+            </button>
+          </div>
+
+          <span class="go-prev arrow" id="prev-button">
+            <svg width="11" height="6" viewBox="0 0 11 6">
+              <path d="M10 5L5.5 0.999999L1 5" stroke="red" stroke-width="1.5"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="go-next arrow" id="next-button">
+            <svg width="11" height="6" viewBox="0 0 11 6">
+              <path d="M1 1L5.5 5L10 1" stroke="white" stroke-width="1.5"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>
-    <script src="js/scripts.min.js"></script>
-  </body>
+  </div>
+  <!-- HEADER END -->
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <div class="screen first-screen">
+      <div class="container-fluid">
+        <div class="row flex-toggle">
+          <div class="col-xs-12 col-md-6">
+            <div class="img--content">
+              <div class="terms">
+                <a href="#"><img src="./img/social/fb.svg" alt="" /></a>
+                <a href="#"><img src="./img/social/ins.svg" alt="" /></a>
+                <a href="#"><img src="./img/social/link.svg" alt="" /></a>
+                <a href="#"><img src="./img/social/telegr.svg" alt="" /></a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-xs-12 col-xs-offset-1 col-md-6">
+            <div class="text--content">
+              <h1>Contact us</h1>
+              <p class="sub--header">Have a question? Send us a message.</p>
+              <p>
+                01008, Kyiv, 5 Hrushevskoho Str. <br />
+                cjlab@gmail.com <br />
+                +38 099 780 33 05
+              </p>
+              <a target="_blank" href="mailto:cjlab@gmail.com ">
+                <svg width="59" height="59">
+                  <circle cx="29.5" cy="29.5" r="29"
+                    transform="rotate(-90 29.5 29.5)" />
+                  <path d="M28 34L32 29.5L28 25" stroke-width="1.5"
+                    stroke-linejoin="round" />
+                </svg>
+
+                <p>send a message</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER TERMS -->
+
+    <!-- END -->
+  </div>
+
+
+  <script src="js/scripts.min.js"></script>
+</body>
+
 </html>

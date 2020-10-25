@@ -1,17 +1,20 @@
 @import "vars"
+.custom-container
+    padding: 0 180px
 
 aside .hamburger .line, section.sidebar .hamburger .line
     background-color: $black
 
 .content
-    padding-top: $about-top-padding    
+    padding-top: $about-top-padding
     & .row
         display: flex
         flex-direction: row
         &.first-screen
-            justify-content: flex-end
             & img
                 z-index: 20
+                height: 100%
+                width: 100%
     & .text--section
         padding: 140px 0
         @include body3
@@ -20,19 +23,40 @@ aside .hamburger .line, section.sidebar .hamburger .line
             padding-bottom: $default-top-padding
             @include H2
     & .team-2-container
-        padding-top: $default-top-padding -  40 
+        padding-top: $default-top-padding -  40
         & p
-            @include body2      
+            @include body2
     & .team-1-container
         & p
             padding-top: $default-top-padding
             @include body2
 
 .person--container
-    padding-bottom: $default-top-padding
     & .person
         padding: 23px 0
         @include body2
+    & .team
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+        gap: 1rem
+        height: 100%
+        padding-left: 60px
+        &--item
+            flex: 1 1 calc((100% / 2) - 2rem)
+            overflow: hidden
+            display: flex
+            flex-direction: column
+            & img
+                height: 30vh
+
+.text-section-area
+    padding-top: 15vh
+
+.team-photos
+    & img
+        margin-left: -180px
+        width: 100%
 
 .owl-carousel-brands
     padding: $default-top-padding 0
@@ -65,5 +89,3 @@ aside .hamburger .line, section.sidebar .hamburger .line
                     color: $white
             &:last-child
                 margin-left: 25px
-
-

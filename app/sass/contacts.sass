@@ -3,14 +3,15 @@
 #contacts
     & .content
         padding-top: 0
-    & .img--content  
+    & .img--content
         width: 100%
         height: 100vh
-        background-image: url('../img/contacts.jpg')
+        background-image: url('../img/index-bg/aside-image.jpg')
         background-repeat: no-repeat
         background-position: center
         background-size: cover
         justify-content: flex-start
+        z-index: 99
     & .text--content
         height: 100%
         display: flex
@@ -18,6 +19,7 @@
         justify-content: center
         & h1
             font-weight: 800
+            margin: 0
             @include H1
         & .sub--header
             padding-bottom: 28px
@@ -41,6 +43,97 @@
                     & circle
                         fill: $grey
                     & path
-                        stroke: $black 
+                        stroke: $black
 
+#single-product
+   // FIRST SCREEN
+    & .first-screen
+        width: 100%
+        height: 100vh
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        justify-content: flex-start
+        z-index: 0
+        & .header
+            @include body0
+        & .text--content
+            display: flex
+            flex-direction: column
+            justify-content: center
+            height: 100%
 
+    .list-with-header
+        & .header
+            position: relative
+            @include body0
+
+    // SECOND SCREEN
+    & .second-screen
+        & .center-content
+            display: flex
+            height: 100%
+            flex-direction: column
+            justify-content: center
+
+    // THIRD SCREEN
+    & .third-screen
+        display: flex
+        flex-direction: column
+        justify-content: center
+        & .count
+            display: flex
+            align-items: center
+            height: 100%
+            width: 100%
+            &-box
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                text-align: center
+                &--header
+                    @include body3
+                &--number
+                    font-size: 80px
+                    padding: 40px 0
+    // FOURTH SCREEN
+    & .fourth-screen
+
+    // FIFTH SCREEN
+    & .fifth-screen
+        width: 100%
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        justify-content: flex-start
+        z-index: 0
+        background-image: url('../img/products/products/pr-1/footer.jpg')
+        @include media(height, (100vh, '', '', '', 400px))
+
+    // SIXTH SCREEN
+    & .sixth-screen
+        & .list-with-header
+            & ul
+                padding-left: 10px
+                & li
+                    list-style-type: none
+
+    // SEVENTH SCREEN
+    & .seventh-screen
+        @extend .third-screen
+        & .count-box--image
+            padding-bottom: 55px
+        & .count-box--footer
+            width: 200px
+
+    // EIGHT SCREEN
+    & .eight-screen
+
+        & button
+            width: 200px
+            background-color: transparent
+            border: 1px solid $grey
+            padding: 20px 45px
+            border-radius: 30px
+            margin-top: 55px

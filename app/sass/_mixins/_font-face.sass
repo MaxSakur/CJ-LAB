@@ -10,3 +10,21 @@
 		@else
 			src: url('#{$file-path}.eot')
 			src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype')
+
+
+
+/* Мои контрольные точки*/ 
+$screens: (all, 1480, 1024, 768, 480)
+
+@mixin media($property, $values)
+	/*разбиваем введенные значения в цикле*/
+	@for $i from 1 through length($values)
+		/*Проверяем, если значение прописано как '' тогда пропускаем его*/
+		@if nth($values, $i) != '' 
+			@if nth($screens, $i) == 'all' 
+				/*Если это первое значение, тогда значение пропишется без @media screen */
+				#{$property}: unquote(#{nth($values, $i)})
+			@else
+				/*иначе помещаем свойство в @media screen с соответствующим индексом*/
+				@media screen and (max-width: nth($screens, $i) + 'px') 
+					#{$property}: unquote(#{nth($values, $i)})

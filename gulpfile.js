@@ -15,12 +15,21 @@ var gulp = require("gulp"),
 
 gulp.task("browser-sync", function () {
   browserSync.init({
+    files: [
+      {
+        match: ["./img/**"],
+        fn: function (event, file) {
+          this.reload();
+        },
+      },
+    ],
     server: {
       baseDir: "app",
     },
     notify: false,
-    // online: false, // Work offline without internet connection
-    // tunnel: true, tunnel: 'projectname', // Demonstration page: http://projectname.localtunnel.me
+    online: false, // Work offline without internet connection
+    tunnel: true,
+    tunnel: "CJLAB", // Demonstration page: http://projectname.localtunnel.me
   });
 });
 function bsReload(done) {

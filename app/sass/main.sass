@@ -37,7 +37,7 @@ body textarea:required:valid
 html, body
 	height: 100%
 	scroll-behavior: smooth
-	
+
 body
 	font-size: 16px
 	min-width: 320px
@@ -45,6 +45,7 @@ body
 	line-height: 1.65
 	font-family: mont
 	overflow-x: hidden
+	background-color: #fff
 
 ul li
 	list-style-type: none
@@ -56,45 +57,32 @@ ul li
 
 .content
 	position: relative
-	
+
 .row, .container-fluid
 	padding: 0
 	margin: 0
-	
+
 .container, .container-fluid, .row
 	height: 100%
 
 footer
 	margin: 0  $aside-width
 	height: 100vh
+	position: relative
 	.footer--menu
-		padding: 316px 0 178px 0
 		height: 100%
 		display: flex
 		flex-direction: column
 		align-items: flex-start
+		justify-content: center
 		& li
-			padding-bottom: 35px 
+			padding-bottom: 35px
 			& a
 				text-decoration: none
 				position: relative
 				color: $black
 				@include body1
-				&::before
-					content: ""
-					width: 10px
-					height: 10px
-					background-color: $black
-					border-radius: 100%
-					display: block
-					position: absolute
-					left: -20px
-					top: 20px
-					opacity: 0
-					transition: all .5s ease
-				&:hover
-					&::before
-						opacity: 1
+
 .text-center
 	text-align: center
 
@@ -110,6 +98,11 @@ footer
 .terms
 	@extend .footer--terms
 	display: block
+	position: absolute
+	bottom: 40px
+	left: 40px
+	& a
+		padding: 0 10px
 
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12,
 .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
@@ -123,7 +116,6 @@ footer
 .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9
 	padding: 0
 
-
 .fullpage
 	width: 100%
 	position: relative
@@ -131,8 +123,6 @@ footer
 	// flex-direction: row
 	&--slider
 		height: 100vh
-		width: 100vw	
+		width: 100vw
 
 @import "media" // Всегда в конце
-
-

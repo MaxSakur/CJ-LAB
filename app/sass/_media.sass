@@ -3,29 +3,116 @@
 /*==========  Desktop First  ==========*/
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px)
+@media only screen and (max-width : 1320px)
+	.glide__slides li .slide__content .slide__container
+		padding: 10vh 20vw
 	/**/
-
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	.glide__slides li .slide__content .slide__container
+		padding: 10vh 10vw
+	.glide__slides li .slide__content .slide__container::after
+		width: 50vw
+		left: 20vw
+	/**/
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
+	#about-text-colums
+		padding-left: 24%
+		padding-right: 180px
+		display: flex
+		flex-direction: column
+	#about-first-image
+		padding-left: 24%
+	#photo-section
+		& .person--container
+			display: flex
+			flex-direction: column
+	.person--container .team
+		padding-left: 0
+	.team-2-container
+		display: none
+	.team-photos img
+		margin-left: 0
 	/**/
-
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
+	#photo-section
+		display: flex
+		flex-direction: column
+	.team-2-container
+		display: none
+	.person--container .team--item img
+		height: 200px
 	/**/
 
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 640px)
+	.custom-container
+		padding: 20px
+	#about-text-colums
+		padding-right: 40px
+	.boss-photo
+		width: 100%
+	.content .text--section
+		padding: 40px 0
+	.content .text--section_bold
+		padding-bottom: 40px
+	.content .team-1-container p
+		font-size: 18px
+		line-height: 24px
+	footer
+		margin: 0 40px
+
+	.glide__slides li .slide__content
+		height: 200px
+
+	/**/
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
-	/**/
+	.slides-container
+		position: relative
+		overflow: visible
+	.person--container .team--item img
+		height: 200px
+	.glide__slides li .slide__content .slide__container::after
+		width: 70vw
+	#products .screen .text--content
+		justify-content: flex-end
+		padding-bottom: 95px
+	.glide__slide .glide__content .glide__container::after
+		height: 300px
+		// bottom: 0
+		top: 20px
+	#contacts .flex-toggle
+		flex-direction: column
+	#contacts .img--content
+		height: 40vh
+	#contacts .text--content
+		padding-top: 40px
+	.single-product .flex-toggle
+		flex-direction: column
+		& .full-hight-img
+			padding: 25px
+		& .list-with-header
+			padding: 150px 25px
+	#products .shadow
+		display: none
 
+	aside
+		height: 160px
+		background-color: #fff
+		border: 1px solid red
+		z-index: 999
+		position: relative
+	/**/
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
 	/**/
-
 
 /*==========  Mobile First  ==========*/
 
@@ -33,23 +120,21 @@
 @media only screen and (min-width : 320px)
 	/**/
 
-
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px)
+	.slides-container
+		position: absolute
+		overflow: hidden
 	/**/
-
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px)
 	/**/
 
-
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px)
 	/**/
 
-
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px)
 	/**/
-
