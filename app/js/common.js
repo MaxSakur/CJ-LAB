@@ -58,7 +58,7 @@ $("#products--slider").owlCarousel({
   items: 1,
   dots: true,
   stagePadding: 300,
-  margin: 120,
+  margin: 140,
   onDragged: callback,
 });
 
