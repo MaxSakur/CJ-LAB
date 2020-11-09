@@ -57,8 +57,8 @@ const callback = (e) => {
 $("#products--slider").owlCarousel({
   items: 1,
   dots: true,
-  stagePadding: 400,
-  margin: 180,
+  stagePadding: 300,
+  margin: 120,
   onDragged: callback,
 });
 
