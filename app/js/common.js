@@ -9,17 +9,65 @@ var $slides = $(".slide");
 var $currentSlide = $slides.first();
 const pageHeight = $window.innerHeight();
 
+AOS.init({
+  easing: "ease-in",
+  duration: 1000,
+});
+
 function delay(f, ms) {
   return function () {
     setTimeout(() => f.apply(this, arguments), ms);
   };
 }
 
-$("#glide").owlCarousel({
-  items: 1,
+$("#boss-item--slider").owlCarousel({
   dots: true,
+  margin: 20,
   loop: false,
   lazyload: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 2,
+    },
+    1000: {
+      items: 3,
+    },
+  },
+});
+
+const callback = (e) => {
+  const currentSlideIndex = e.item.index;
+  const currentItem = document.getElementById(
+    products_item - `${currentSlideIndex + 1}`
+  );
+  for (let i = 0; i <= 2; i++) {
+    const itemChilden = currentItem.children[i];
+    itemChilden.setAttribute("data-aos", "fade-left");
+
+    itemChilden && itemChilden.hasAttribute("data-aos")
+      ? itemChilden.setAttribute("data-aos", "fade-left")
+      : itemChilden.removeAttribute("data-aos");
+  }
+};
+
+$("#products--slider").owlCarousel({
+  items: 1,
+  dots: true,
+  stagePadding: 400,
+  margin: 180,
+  onDragged: callback,
+});
+
+$(function () {
+  $(".owl-carousel").owlCarousel({
+    margin: 10,
+    loop: true,
+    items: 4,
+    stagePadding: 100,
+  });
 });
 
 $("#carouselBrands").owlCarousel({

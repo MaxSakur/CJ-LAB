@@ -63,6 +63,7 @@ gulp.task("js", function () {
       "app/libs/owl-carousel/owl.carousel.js",
       "app/libs/modernizr.min.js",
       "app/libs/TweenLite.min.js",
+      "app/libs/aos/aos.js",
       "app/libs/CSSPlugin.min.js",
       "app/libs/ScrollToPlugin.min.js",
       "app/js/common.js", // Всегда в конце

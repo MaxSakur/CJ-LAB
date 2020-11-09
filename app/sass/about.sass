@@ -31,10 +31,19 @@ aside .hamburger .line, section.sidebar .hamburger .line
             padding-top: $default-top-padding
             @include body2
 
+.boss-item--slider
+    display: flex
+    & .owl-theme .owl-dots::before
+        display: none
+    & .boss-item
+        min-width: 400px
+
 .person--container
     & .person
         padding: 23px 0
         @include body2
+    & .owl-theme .owl-dots::before
+        background-color: transparent
     & .team
         width: 100%
         display: flex

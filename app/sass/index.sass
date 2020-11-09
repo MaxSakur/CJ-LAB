@@ -78,7 +78,7 @@
         z-index: 99
         width: 100%
         & aside .hamburger.pressed~.aside--content #index-hamburger-menu
-            position: absolute
+            position: fixed
             bottom: 0
             height: 100vh
             // z-index: 999
@@ -104,7 +104,10 @@ aside
     width: $aside-width
     height: 100%
     background-color: rgba(255,255,255,.10)
-
+    &.full-height
+        height: 100vh
+        position: absolute
+        right: 0
     #index-hamburger-menu
         position: absolute
         height: 100%
@@ -322,8 +325,8 @@ section.sidebar
         & ul
             display: flex
             flex-direction: column
-            flex: 2
-            justify-content: flex-end
+            flex: 1
+            justify-content: center
             & li
                 margin-bottom: 36px
             & a
@@ -333,9 +336,8 @@ section.sidebar
 
     &--terms
         z-index: 11
-        flex: 1
         display: flex
-
+        padding-bottom: 40px
         @include media( align-items, ('flex-end', '', '', '', ''))
         @include media( justify-content, ('', '', '', '', 'flex-end'))
         @include media( flex-direction, ('row', '', '', '', 'column'))

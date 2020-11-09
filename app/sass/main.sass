@@ -66,22 +66,27 @@ ul li
 	height: 100%
 
 footer
-	margin: 0  $aside-width
 	height: 100vh
 	position: relative
-	.footer--menu
-		height: 100%
-		display: flex
-		flex-direction: column
-		align-items: flex-start
-		justify-content: center
-		& li
-			padding-bottom: 35px
-			& a
-				text-decoration: none
-				position: relative
-				color: $black
-				@include body1
+	background-image: url(../img/index-bg/index-5bg.jpg)
+	& .footer
+		&--menu
+			margin: 0  $aside-width
+			height: 100%
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			justify-content: center
+			& li
+				padding-bottom: 35px
+				& a
+					text-decoration: none
+					position: relative
+					color: $black
+					@include body1
+		&--bottom
+			margin: 0  65px
+			padding-bottom: 40px
 
 .text-center
 	text-align: center
