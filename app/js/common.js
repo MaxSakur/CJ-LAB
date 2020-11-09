@@ -12,6 +12,7 @@ const pageHeight = $window.innerHeight();
 AOS.init({
   easing: "ease-in",
   duration: 1000,
+  // disable: "mobile",
 });
 
 function delay(f, ms) {
@@ -103,6 +104,16 @@ goToSlide($currentSlide);
 /*
  *   Adding event listeners
  * */
+
+const mainScreen = document.getElementById("main");
+// mainScreen.on("load", () => {
+//   console.log(mainScreen, "mainScreen");
+// });
+const animation_slide_1 = () => {};
+
+window.addEventListener("load", function (event) {
+  document.getElementById("slide-1").animate({ left: "-1000px" });
+});
 
 $window.on("resize", onResize).resize();
 $window.on("mousewheel DOMMouseScroll ", onMouseWheel);
