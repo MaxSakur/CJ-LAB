@@ -23,8 +23,9 @@ function delay(f, ms) {
 
 $("#boss-item--slider").owlCarousel({
   dots: true,
-  margin: 20,
+  // margin: 20,
   loop: false,
+  // center: true,
   lazyload: true,
   responsive: {
     0: {

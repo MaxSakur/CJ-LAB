@@ -88,6 +88,9 @@
         position: absolute
         z-index: 99
         width: 100%
+        & aside
+            position: fixed
+            right: 0
         & aside .hamburger.pressed~.aside--content #index-hamburger-menu
             position: fixed
             bottom: 0
@@ -97,16 +100,22 @@
             right: 0
             left: 0
 
+aside.no_pagename
+    & .page--name
+        display: none
 // ASIDE
 aside.unbordered
     z-index: 0
+
     background-color: transparent
     & .aside--content
         border: none
     & .buttons
         display: none
     & .page--name
-        display: none
+        right: 80px
+        position: fixed
+        top: 50%
 aside
     // position: fixed
     // right: 0
@@ -166,7 +175,7 @@ aside
                     padding-bottom: 30px
     & .hamburger
         position: absolute
-        right: $aside-width/2 - $hamburger-width/2
+        right: 80px
         top: $hamburger-vertical-padding
         width: $hamburger-width
         cursor: pointer
@@ -240,6 +249,7 @@ aside
                         display: none !important
                 & .page--name p
                     color: $white
+
     & .aside--content
         // padding-top: $hamburger-area
         display: flex
@@ -253,7 +263,9 @@ aside
         display: flex
         flex-direction: column
         padding-bottom: 38px
-        height: 200px
+        position: absolute
+        bottom: 0
+        // height: 200px
         justify-content: flex-end
         @include media( display, ('block', '', '', '', 'none'))
         & #lang
@@ -292,10 +304,12 @@ aside
         flex: 1
         justify-content: center
         align-items: center
+        transform: rotate(270deg)
         @include media( display, ('flex', '', '', '', 'none'))
         & p
-            transform: rotate(270deg)
             color: $black
+            width: 0
+            white-space: nowrap
 
 // SIDEBAR
 section.sidebar
