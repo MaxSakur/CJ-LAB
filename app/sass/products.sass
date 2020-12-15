@@ -96,7 +96,7 @@ $grey-line-margin: 140px
                 width: 100%
                 background-repeat: no-repeat
                 background-position: right
-                background-size: 70% 100%
+                // background-size: 70% 100%
                 display: flex
                 flex-direction: column
                 justify-content: center
@@ -108,7 +108,9 @@ $grey-line-margin: 140px
                 &__3
                     background-image: url('../img/products/products/pr-3.jpg')
                 &__container
-                    padding-right: 280px
+                    padding-right: 0
+                    transition: all 1s ease-in-out
+                    display: none
                     &-header
                         @include body0
                     & p:nth-child(2)
@@ -120,6 +122,12 @@ $grey-line-margin: 140px
                         text-decoration: none
                         & p
                             @include body1
+
+#products .carousel #products--slider
+    & .owl-item.active
+        & .slide__container
+            padding-right: 280px
+            display: block
 
 // DOTS STYLE OVERWRITE 
 .owl-theme
