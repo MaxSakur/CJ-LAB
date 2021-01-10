@@ -54,15 +54,11 @@ $default-top-padding: 140px
 @include font('mont-thin', normal, 200, '../fonts/Mont/Mont-Thin.ttf')
 @include font('mont-thin-italic', italic, 200, '../fonts/Mont/Mont-ThinItalic.ttf')
 
-*
-    margin: 0
-    padding: 0
-
 $default-font: "mont", sans-serif
 $h1-font: "mont-bold" , sans-serif
 
 /* Мои контрольные точки*/ 
-$screens: (all, 1540, 1366, 1024 ,768, 480)
+$screens: (all, 1540, 1366, 1200, 1024 ,768, 480)
 
 @mixin H1
     font-feature-settings: 'pnum' on, 'lnum' on
@@ -70,8 +66,8 @@ $screens: (all, 1540, 1366, 1024 ,768, 480)
     font-family: $h1-font
     margin-bottom: 0
     padding-bottom: 0
-    @include media(font-size, (48px, 44px, '', 26px, 24px))
-    @include media(line-height, (64px,'', 50px, 39px, 28px))
+    @include media(font-size, (48px, 48px, 38px, 34px, 32px))
+    @include media(line-height, (64px, '', '', 64px, 40px))
 
 @mixin H2
     @include media(font-size, (32px, 28px, 24px, 18px))

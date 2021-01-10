@@ -31,39 +31,25 @@ aside .hamburger .line, section.sidebar .hamburger .line
             padding-top: $default-top-padding
             @include body2
 
-.boss-item--slider
+// SLIDER 
+.teamSwiper-container
     display: flex
-    // border: 1px solid red
-    justify-content: flex-start
-    padding-bottom: 40px
-    // width: 800px
-    & .owl-theme .owl-dots::before
-        display: none
-    & .owl-dots
-        bottom: 0 !important
-    & .boss-item
-        // width: 400px
+    align-items: center
+    justify-content: center
 
-.person--container
-    & .person
-        padding: 23px 0
-        @include body2
-    & .owl-theme .owl-dots::before
-        background-color: transparent
-    & .team
-        width: 100%
-        display: flex
-        flex-wrap: wrap
-        gap: 1rem
+    margin: auto
+#teamSwiper
+    width: 800px
+
+    & img
+        max-height: 400px
+        width: auto
+        margin: auto
+    & .slide
+        background-color: blue
+        border: 5px solid green
         height: 100%
-        padding-left: 60px
-        &--item
-            flex: 1 1 calc((100% / 2) - 2rem)
-            overflow: hidden
-            display: flex
-            flex-direction: column
-            & img
-                height: 30vh
+    & .owl-theme .owl-dots
 
 .text-section-area
     padding-top: 15vh

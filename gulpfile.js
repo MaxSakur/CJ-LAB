@@ -59,6 +59,7 @@ gulp.task("js", function () {
   return gulp
     .src([
       "app/libs/jquery/dist/jquery.min.js",
+      "app/libs/swipe/swiper-bundle.min.js",
       "app/libs/glide/glide.min.js",
       "app/libs/owl-carousel/owl.carousel.js",
       "app/libs/modernizr.min.js",

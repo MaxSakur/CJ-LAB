@@ -106,7 +106,6 @@ aside.no_pagename
 // ASIDE
 aside.unbordered
     z-index: 0
-
     background-color: transparent
     & .aside--content
         border: none
@@ -117,21 +116,19 @@ aside.unbordered
         position: fixed
         top: 50%
 aside
-    // position: fixed
-    // right: 0
-    // top: 0
     z-index: 999
     width: $aside-width
     height: 100%
     background-color: rgba(255,255,255,.10)
     &.full-height
-        height: 100vh
         position: absolute
         right: 0
+        @include media( height, ('100vh', '', '', '', '100px'))
+        @include media( width, ('160px', '', '', '', '100px'))
+        @include media( background-color, ('rgba(255,255,255,.1)', '', '', '', 'transparent'))
     #index-hamburger-menu
         position: absolute
         height: 100%
-        // transition: all .2s ease
         right: 0
         top: 0
         opacity: 0
@@ -175,11 +172,11 @@ aside
                     padding-bottom: 30px
     & .hamburger
         position: absolute
-        right: 80px
-        top: $hamburger-vertical-padding
+        right: calc(50% - 20px)
         width: $hamburger-width
         cursor: pointer
         z-index: 99
+        @include media( top, ('20px', '', '', '', 'calc(50% - 20px)'))
         & .line
             height: 2px
             margin-top: $hamburger-width/4
@@ -314,15 +311,15 @@ aside
 // SIDEBAR
 section.sidebar
     z-index: 999
-    width: $aside-width
     height: 100%
     background-color: rgba(255,255,255,.10)
     right: inherit
     background-color: transparent
     left: 0
-    padding: $aside-vertical-padd $aside-horizontal-padd
     border: none
     z-index: 0
+    @include media( padding, ($aside-horizontal-padd, $aside-horizontal-padd*0.8, '', '', '', ''))
+    @include media( width, ($aside-width, $aside-width*0.8, '', '', ''))
     & .logo
         width: $aside-width - $aside-horizontal-padd *2
         height: $aside-width - $aside-horizontal-padd *2.2
