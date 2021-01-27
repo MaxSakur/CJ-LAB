@@ -160,9 +160,11 @@ footer
 		height: 100%
 		width: 100vw
 		align-items: center
+		@include media(flex-direction, ('row', '', '', '', 'column' ))
 		&--text
 			max-width: 50vw
 			z-index: 2
+			@include media(max-width, ('50vw', '', '', '', 'inherit' ))
 			@include media(padding-left, (160px, '', '', 60px, 40px ))
 			@include media(padding-bottom, (140px, '', '', 0px, '' ))
 			& p.h1
