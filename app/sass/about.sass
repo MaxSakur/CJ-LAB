@@ -5,88 +5,92 @@
 aside .hamburger .line, section.sidebar .hamburger .line
     background-color: $black
 
-.content
-    padding-top: $about-top-padding
+.about
+    & .content
+
     & .row
         display: flex
         flex-direction: row
-        &.first-screen
-            & img
-                z-index: 20
-                height: 100%
+    & .about--section_one
+        position: relative
+        padding-top: $about-top-padding
+        padding-left: 180px
+        height: 100vh
+        overflow: hidden
+        z-index: 1
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            bottom: 0
+            height: 600px
+            width: 100%
+            background-position: center
+            background-size: cover
+            background-image: url('./../img/about-header-bg.svg')
+            background-repeat: no-repeat
+        &__header
+            z-index: 1
+            padding-right: 400px
+            & p
+                // Add font scaling
+                font-size: 48px
+                line-height: 72px
+    & .about--section_two
+        padding: 180px
+        justify-content: space-between
+        align-items: center
+        &__text
+            font-size: 32px
+            line-height: 48px
+        &__image
+            padding-left: 20px
+
+    & .about--section_three
+        padding: 0 180px
+        padding-bottom: 160px
+        &__text
+            @extend .about--section_two__text
+
+    & .about--section_fourth
+        padding: 0 180px
+        padding-bottom: 160px
+        & #teamSwiper
+            margin-bottom: 180px
+            &  .owl-dots
                 width: 100%
-    & .text--section
-        padding: 140px 0
-        @include body3
-        &_bold
-            font-weight: 800
-            padding-bottom: $default-top-padding
-            @include H2
-    & .team-2-container
-        padding-top: $default-top-padding -  40
-        & p
-            @include body2
-    & .team-1-container
-        & p
-            padding-top: $default-top-padding
-            @include body2
+                &::before
+                    background-color: transparent
+            & .owl-item
+                padding-left: 20px
+                & .slide_footer
+                    & p.name
+                        font-size: 28px
+                        line-height: 34px
+                        margin-top: 40px
+                        margin-bottom: 15px
+                    & p.info
+                        font-size: 18px
+                        line-height: 24px
 
-// SLIDER 
-.teamSwiper-container
-    display: flex
-    align-items: center
-    justify-content: center
+    & .about--section_fifth
+        @extend .about--section_three
+        &__text
+            @extend .about--section_two__text
 
-    margin: auto
-#teamSwiper
-    width: 800px
-
-    & img
-        max-height: 400px
-        width: auto
-        margin: auto
-    & .slide
-        background-color: blue
-        border: 5px solid green
-        height: 100%
-    & .owl-theme .owl-dots
-
-.text-section-area
-    padding-top: 15vh
-
-.team-photos
-    & img
-        margin-left: -180px
-        width: 100%
-
-.owl-carousel-brands
-    padding: $default-top-padding 0
-    & .item
-        & img
-            width: 100px
-            margin: auto
-
-.owl-carousel-photos
-    .owl-nav
-        flex-direction: row
+    & .about--section_sixth
         display: flex
-        justify-content: flex-end
-        & button[role="presentation"]
-            width: 60px
-            height: 60px
+        flex-direction: column
+        padding: 0 200px 180px 200px
+        padding-top: 0
+        &__header
+            font-size: 48px
+            line-height: 72px
+        &__body
             display: flex
-            justify-content: center
-            align-items: center
-            border-radius: 100%
-            margin: 12px 0
-            border: 1px solid $grey
-            &:hover
-                background-color: $grey
-                & span
-                    color: $black
-            &:active
-                background-color: $black
-                & span
-                    color: $white
-            &:last-child
-                margin-left: 25px
+            flex-direction: row
+            padding: 60px 0
+            gap: 10vw
+            & .right-side, & .left-side
+                font-size: 16px
+                line-height: 24px
