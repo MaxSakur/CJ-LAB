@@ -1,6 +1,21 @@
 @import "vars"
+
+// NEWEST FONT STYLES FOR ABOUT SCREEN
+.about_h1
+    @include media('font-size',( 48px, '', '',26px))
+    @include media('line-height',( 72px, '', '', 39px))
+.about_h3
+    @include media('font-size',( 32px, '', '',18px))
+    @include media('line-height',( 48px, '', '', 24px))
+.about_body
+    @include media('font-size',( 28px, '', 20px,16px))
+    @include media('line-height',( 34px, '', 26px, 20px))
+.about_link
+    @include media('font-size',( 18px, '', 16px, 14px))
+    @include media('line-height',( 24px, '', 24px, 18px))
+
 .custom-container
-    padding: 0 180px
+    padding: 0 $aside-width
 
 aside .hamburger .line, section.sidebar .hamburger .line
     background-color: $black
@@ -13,65 +28,74 @@ aside .hamburger .line, section.sidebar .hamburger .line
         flex-direction: row
     & .about--section_one
         position: relative
-        padding-top: $about-top-padding
-        padding-left: 180px
         height: 100vh
         overflow: hidden
         z-index: 1
+        @include media('padding-left',( $aside-width , '', '', $aside-width/2))
+        @include media('padding-top',($about-top-padding, '', '', 0))
         &::before
             content: ""
             position: absolute
             left: 0
             bottom: 0
-            height: 600px
+            // height: 30vh
             width: 100%
             background-position: center
             background-size: cover
             background-image: url('./../img/about-header-bg.svg')
             background-repeat: no-repeat
+            @include media('height',( 80vh , 80vh, 75vh, 65vh, 55vh, 40vh))
         &__header
             z-index: 1
-            padding-right: 400px
+            @include media('padding-right',( 400px , '', '', 100px))
+            @include media('align-items',( initial , '', '', 'center'))
+            @include media('display',( 'block' , '', '', 'flex'))
             & p
                 // Add font scaling
-                font-size: 48px
-                line-height: 72px
+                @extend .about_h1
+
     & .about--section_two
-        padding: 180px
         justify-content: space-between
         align-items: center
+        @include media('padding',( $aside-width , '', '', $aside-width/2))
+        @include media('flex-direction',( 'row' , '', '', column))
+
         &__text
-            font-size: 32px
-            line-height: 48px
+            @extend .about_h3
         &__image
-            padding-left: 20px
+            @include media('width',( 50% , '', '', 100%))
+            @include media('padding-left',( 20px , '', '', 0))
+            @include media('padding-top',( 0 , '', '', 40px))
 
     & .about--section_three
-        padding: 0 180px
-        padding-bottom: 160px
+        @include media('padding',( 0 $aside-width , '', '', 0 $aside-width/2))
+        @include media('padding-bottom',( 160px , '', '', 80px))
         &__text
             @extend .about--section_two__text
 
     & .about--section_fourth
-        padding: 0 180px
+        @include media('padding',( 0 $aside-width , '', '', 0 $aside-width/2))
         padding-bottom: 160px
         & #teamSwiper
-            margin-bottom: 180px
+            @include media('margin-bottom',( 160px , '', '', 160px))
+            @extend .default-owl-theme
+
             &  .owl-dots
                 width: 100%
-                &::before
-                    background-color: transparent
+                & .owl-dot
+                    @include media('margin-left',( 20px , '', '', 0))
+                    &::before
+                        background-color: transparent
             & .owl-item
-                padding-left: 20px
-                & .slide_footer
-                    & p.name
-                        font-size: 28px
-                        line-height: 34px
-                        margin-top: 40px
-                        margin-bottom: 15px
-                    & p.info
-                        font-size: 18px
-                        line-height: 24px
+                @include media('padding-right',( 20px , '', '', '', 0))
+
+            & .slide_footer
+                & p.name
+                    margin-top: 40px
+                    margin-bottom: 15px
+                    @extend .about_body
+                & p.info
+                    @extend .about_link
 
     & .about--section_fifth
         @extend .about--section_three
@@ -81,16 +105,15 @@ aside .hamburger .line, section.sidebar .hamburger .line
     & .about--section_sixth
         display: flex
         flex-direction: column
-        padding: 0 200px 180px 200px
         padding-top: 0
+        @include media('padding',( 0 200px $aside-width 200px , '', '', 0 $aside-width/2 $aside-width/2 $aside-width/2))
         &__header
-            font-size: 48px
-            line-height: 72px
+            @extend .about_h1
         &__body
             display: flex
-            flex-direction: row
-            padding: 60px 0
             gap: 10vw
+            @include media('flex-direction',( 'row' , '', '', column))
+            @include media('padding',( 60px 0 , '', '', 30px 0))
             & .right-side, & .left-side
                 font-size: 16px
                 line-height: 24px

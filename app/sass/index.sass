@@ -117,9 +117,9 @@ aside.unbordered
         top: 50%
 aside
     z-index: 999
-    width: $aside-width
     height: 100%
     background-color: rgba(255,255,255,.10)
+    @include media( width, ($aside-width, '', '', '', $aside-width/2))
     &.full-height
         position: absolute
         right: 0
@@ -176,7 +176,7 @@ aside
         width: $hamburger-width
         cursor: pointer
         z-index: 99
-        @include media( top, ('20px', '', '', '', 'calc(50% - 20px)'))
+        @include media( top, ('20px', '', '', '', ''))
         & .line
             height: 2px
             margin-top: $hamburger-width/4

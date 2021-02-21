@@ -129,40 +129,41 @@ $grey-line-margin: 140px
             display: block
 
 // DOTS STYLE OVERWRITE 
-.owl-theme
-    & .owl-dots
-        position: absolute
-        bottom: -80px
-        width: 100vw
-        &::before
-            content: ''
-            display: block
+#products
+    & .owl-theme, & .default-owl-theme
+        & .owl-dots
             position: absolute
-            bottom: 0
-            width: 100%
-            height: 1px
-            background-color: #BDBDBD
-        & .owl-dot
-            margin-right: $slider-dot-size * 3
-            position: relative
-            border: 1px solid #BDBDBD
-
-            &::after
-                contant: ""
+            bottom: -80px
+            width: 100vw
+            &::before
+                content: ''
                 display: block
-                height: $slider-dot-size
-                width: $slider-dot-size/2
-            & span
-                background: #BDBDBD
                 position: absolute
-                bottom: -$slider-dot-size/2 + 2
-            &.active
+                bottom: 0
+                width: 100%
+                height: 1px
+                background-color: #BDBDBD
+            & .owl-dot
+                position: relative
+                border: 1px solid #BDBDBD
+                @include media('margin-left',( 20px , '', '', 0))
+
                 &::after
-                    content: url('../img/products/slider/dot.png')
+                    contant: ""
                     display: block
-                    position: absolute
-                    bottom: -$slider-dot-size/2
-                    overflow: visible
-                    left: calc(50% - 20px)
                     height: $slider-dot-size
-                    width: $slider-dot-size
+                    width: $slider-dot-size/2
+                & span
+                    background: #BDBDBD
+                    position: absolute
+                    bottom: -$slider-dot-size/2 + 2
+                &.active
+                    &::after
+                        content: url('../img/products/slider/dot.png')
+                        display: block
+                        position: absolute
+                        bottom: -$slider-dot-size/2
+                        overflow: visible
+                        left: calc(50% - 20px)
+                        height: $slider-dot-size
+                        width: $slider-dot-size

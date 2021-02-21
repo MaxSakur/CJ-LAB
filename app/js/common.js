@@ -9,6 +9,14 @@ var $slides = $(".slide");
 var $currentSlide = $slides.first();
 const pageHeight = $window.innerHeight();
 
+window.addEventListener("touchstart", (e) => {
+  // is not near edge of view, exit
+  if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+
+  // prevent swipe to navigate gesture
+  e.preventDefault();
+});
+
 AOS.init({
   easing: "ease-in",
   duration: 1000,
@@ -45,10 +53,13 @@ $("#teamSwiper").owlCarousel({
     0: {
       items: 1,
     },
-    600: {
-      items: 3,
+    420: {
+      items: 1,
     },
-    1000: {
+    560: {
+      items: 2,
+    },
+    780: {
       items: 3,
     },
   },
