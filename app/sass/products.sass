@@ -74,9 +74,6 @@ $grey-line-margin: 140px
         flex: 1
         background: grey
 
-#products--slider .owl-stage
-    margin-left: -100px
-
 #products
     display: flex
     flex-direction: column
@@ -123,47 +120,9 @@ $grey-line-margin: 140px
                             @include body1
 
 #products .carousel #products--slider
+    & .owl-stage
+        @include media(margin-left, (-100px, '', '', '', 0))
     & .owl-item.active
         & .slide__container
-            padding-right: 280px
             display: block
-
-// DOTS STYLE OVERWRITE 
-#products
-    & .owl-theme, & .default-owl-theme
-        & .owl-dots
-            position: absolute
-            bottom: -80px
-            width: 100vw
-            &::before
-                content: ''
-                display: block
-                position: absolute
-                bottom: 0
-                width: 100%
-                height: 1px
-                background-color: #BDBDBD
-            & .owl-dot
-                position: relative
-                border: 1px solid #BDBDBD
-                @include media('margin-left',( 20px , '', '', 0))
-
-                &::after
-                    contant: ""
-                    display: block
-                    height: $slider-dot-size
-                    width: $slider-dot-size/2
-                & span
-                    background: #BDBDBD
-                    position: absolute
-                    bottom: -$slider-dot-size/2 + 2
-                &.active
-                    &::after
-                        content: url('../img/products/slider/dot.png')
-                        display: block
-                        position: absolute
-                        bottom: -$slider-dot-size/2
-                        overflow: visible
-                        left: calc(50% - 20px)
-                        height: $slider-dot-size
-                        width: $slider-dot-size
+            @include media(padding-right, (280px, '', '', '', 0))

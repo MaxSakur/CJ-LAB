@@ -3,17 +3,27 @@
 #contacts
     & .content
         padding-top: 0
+    & .contacts-row
+        display: flex
+        align-items: center
+        @include media(flex-direction, (row, '', '', '', '',column))
+        & .img--content
+            z-index: -1
+            @include media(flex, (1, '', '', '', '', none))
+        & .text--content
+            flex: 1
     & .img--content
         width: 100%
-        height: 100vh
         background-image: url('../img/index-bg/aside-image.jpg')
         background-repeat: no-repeat
         background-position: center
         background-size: cover
         justify-content: flex-start
         z-index: 99
+        @include media(height, (100vh, '', '', '', '', 50vh))
     & .text--content
         height: 100%
+        padding: 35px
         display: flex
         flex-direction: column
         justify-content: center

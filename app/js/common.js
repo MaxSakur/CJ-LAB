@@ -42,6 +42,16 @@ $("#products--slider").owlCarousel({
   dots: true,
   stagePadding: 300,
   margin: 140,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    420: {
+      items: 1,
+      stagePadding: 40,
+      margin: 40,
+    },
+  },
 });
 
 $("#teamSwiper").owlCarousel({

@@ -89,11 +89,11 @@ footer
 					color: $black
 					@include body1
 		&--bottom
-			margin: 0 65px
 			padding-bottom: 40px
 			display: flex
+			@include media('margin',(  0 65px , '', '', 0))
 			& a
-				white-space: nowrap
+				@include media('white-space',( nowrap , '', '', wrap))
 
 .text-center
 	text-align: center
