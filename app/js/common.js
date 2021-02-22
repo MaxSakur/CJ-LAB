@@ -58,6 +58,7 @@ $("#teamSwiper").owlCarousel({
   items: 3,
   dots: true,
   loop: false,
+  autoHeight : true,
   responsiveClass: true,
   responsive: {
     0: {

@@ -122,12 +122,18 @@ h2.h2
     @include H2
 
 // DOTS STYLE OVERWRITE 
+.row
+    display: flex
+    flex-direction: row
+.flex-toggle
+    display: flex
+    @include media('flex-direction',( row , '', '', '', column))
 
 .default-owl-theme
     & .owl-dots
         position: absolute
         width: 100%
-        @include media('bottom',( -80px , '', '', '', -80px))
+        @include media('bottom',( -40px , '', '', '', -40px))
         &::before
             content: ''
             display: block

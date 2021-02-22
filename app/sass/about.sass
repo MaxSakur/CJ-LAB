@@ -47,12 +47,12 @@ aside .hamburger .line, section.sidebar .hamburger .line
             @include media('height',( 80vh , 80vh, 75vh, 65vh, 55vh, 40vh))
         &__header
             z-index: 1
-            @include media('padding-right',( 60vw , 40vw, 30vw, '', $aside-width/2))
-            @include media('align-items',( initial , '', '', 'center'))
-            @include media('display',( 'block' , '', '', 'flex'))
-            & p
-                // Add font scaling
+            & p.header
                 @extend .about_h1
+                padding-bottom: 60px
+            & p.body
+                width: 600px
+                @extend .about_h3
 
     & .about--section_two
         justify-content: space-between
@@ -82,12 +82,18 @@ aside .hamburger .line, section.sidebar .hamburger .line
 
             &  .owl-dots
                 width: 100%
+                &::before
+                    background-color: transparent !important
                 & .owl-dot
                     @include media('margin-left',( 20px , '', '', 0))
                     &::before
                         background-color: transparent
             & .owl-item
                 @include media('padding-right',( 20px , '', '', '', 0))
+                & img
+                    display: block
+                    width: 100%
+                    height: auto
 
             & .slide_footer
                 & p.name
@@ -99,6 +105,7 @@ aside .hamburger .line, section.sidebar .hamburger .line
 
     & .about--section_fifth
         @extend .about--section_three
+        padding-right: 320px
         &__text
             @extend .about--section_two__text
 
@@ -106,14 +113,18 @@ aside .hamburger .line, section.sidebar .hamburger .line
         display: flex
         flex-direction: column
         padding-top: 0
+
         @include media('padding',( 0 200px $aside-width 200px , '', '', 0 $aside-width/2 $aside-width/2 $aside-width/2))
         &__header
             @extend .about_h1
+            padding: 0 40px
         &__body
             display: flex
-            gap: 10vw
+
             @include media('flex-direction',( 'row' , '', '', column))
             @include media('padding',( 60px 0 , '', '', 30px 0))
             & .right-side, & .left-side
+                width: 50%
+                padding: 40px
                 font-size: 16px
                 line-height: 24px
