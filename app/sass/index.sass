@@ -154,9 +154,9 @@ aside
             & ul
                 display: flex
                 flex-direction: column
-                flex: 2
+                height: calc(100% - 400px)
                 align-items: flex-start
-                justify-content: flex-end
+                justify-content: center
                 & li
                     margin-bottom: 36px
                     & a
@@ -165,11 +165,14 @@ aside
                         @include body2
             &--terms
                 display: flex
-                flex: 1
+                flex: 0
                 align-items: flex-end
                 & a
-                    @extend .footer--terms_item
+                    margin-right: 31px
+                    color: $grey
+                    text-decoration: none
                     padding-bottom: 30px
+                    @include link
     & .hamburger
         position: absolute
         right: calc(50% - 20px)
@@ -330,41 +333,3 @@ section.sidebar
         &_dark
             @extend .logo
             background-image: url(../img/logo/logo-dark.svg)
-
-// FOOTER    
-.footer
-    height: 100%
-    display: flex
-    flex-direction: column
-    align-items: stretch
-    padding: 20px 0
-
-    & .content
-        display: flex
-        justify-content: center
-        height: 100%
-        padding-bottom: 20px
-        & ul
-            display: flex
-            flex-direction: column
-            flex: 1
-            justify-content: center
-            & li
-                margin-bottom: 36px
-            & a
-                text-decoration: none
-                color: $black
-                @include body2
-
-    &--terms
-        z-index: 11
-        display: flex
-        padding-bottom: 40px
-        @include media( align-items, ('flex-end', '', '', '', ''))
-        @include media( justify-content, ('', '', '', '', 'flex-end'))
-        @include media( flex-direction, ('row', '', '', '', 'column'))
-        &_item
-            margin-right: 31px
-            color: $grey
-            text-decoration: none
-            @include link
