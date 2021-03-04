@@ -43,13 +43,17 @@ $("#products--slider").owlCarousel({
   stagePadding: 300,
   margin: 140,
   responsive: {
-    0: {
-      items: 1,
+    320: {
+      stagePadding: 20,
+      margin: 20,
     },
-    420: {
-      items: 1,
-      stagePadding: 40,
-      margin: 40,
+    520: {
+      stagePadding: 100,
+      margin: 80,
+    },
+    980: {
+      stagePadding: 300,
+      margin: 140,
     },
   },
 });
@@ -58,7 +62,7 @@ $("#teamSwiper").owlCarousel({
   items: 3,
   dots: true,
   loop: false,
-  autoHeight : true,
+  autoHeight: true,
   responsiveClass: true,
   responsive: {
     0: {

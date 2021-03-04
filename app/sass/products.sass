@@ -1,4 +1,7 @@
 @import './_vars'
+$height: 500px
+$slider-dot-size: 40px
+$grey-line-margin: 140px
 
 #products, #single-product
     display: flex
@@ -36,7 +39,7 @@
     .body3
         @include body3
     & .screen
-        height: 100vh
+        @include media('height',( 100vh , '', '', '', '', auto))
         display: flex
         overflow: hidden
         flex-direction: column
@@ -51,17 +54,13 @@
         color: $grey
         opacity: .3
         font-weight: 400
-
+        @include media(display, (block, '', '', '', none ))
     .carousel
         flex: 1
         display: flex
-        align-items: center
+        @include media( align-items, (center, '', '', '', flex-start ))
 
 // UPDATE SLIDER
-
-$height: 500px
-$slider-dot-size: 40px
-$grey-line-margin: 140px
 
 #products
     display: flex
@@ -79,10 +78,10 @@ $grey-line-margin: 140px
     flex-direction: column
     flex: 1
     & .carousel
-        margin-top: 80px
         display: flex
         flex: 1
-        padding-bottom: 40px
+        @include media( margin-top, ( 80px, '', '', '', 120px ))
+        @include media( padding-bottom, ( 40px, '', '', '', 80px ))
         & #products--slider
             flex: 1
             display: flex
@@ -111,7 +110,8 @@ $grey-line-margin: 140px
                         @include body0
                     & p:nth-child(2)
                         font-size: 18px
-                        width: 400px
+
+                        @include media(width, ( 400px, '', '', '', 280px ))
                         padding: 20px 0
                     & a
                         color: #000

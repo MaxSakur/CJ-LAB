@@ -31,13 +31,13 @@
 
 <body class="about">
   <!-- HEADER -->
-  <div class="app-header absolute">
+  <div class="app-header absolute fixed">
     <section class="sidebar">
       <img src="./img/logo/logo-dark.svg" id="logo"
         alt="customer journey lab logo_dark" />
     </section>
 
-    <aside id="aside">
+    <aside id="aside" class="full-height">
       <div class="hamburger" id="index-hamburger">
         <div class="lines">
           <div class="line"></div>
@@ -64,7 +64,7 @@
 
         <!-- PAGE NAME -->
         <div class="page--name">
-          <p id="pageName">О нас</p>
+          <p id="pageName">главная</p>
         </div>
 
         <!-- BUTTONS SECTION -->
@@ -82,12 +82,22 @@
             </button>
           </div>
 
-
+          <span class="go-prev arrow" id="prev-button">
+            <svg width="11" height="6" viewBox="0 0 11 6">
+              <path d="M10 5L5.5 0.999999L1 5" stroke="red" stroke-width="1.5"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="go-next arrow" id="next-button">
+            <svg width="11" height="6" viewBox="0 0 11 6">
+              <path d="M1 1L5.5 5L10 1" stroke="white" stroke-width="1.5"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>
   </div>
-  <!-- HEADER END -->
 
   <!-- MAIN CONTENT -->
   <div class="content">

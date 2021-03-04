@@ -2,17 +2,17 @@
 
 // NEWEST FONT STYLES FOR ABOUT SCREEN
 .about_h1
-    @include media('font-size',( 48px, '', '',26px))
-    @include media('line-height',( 72px, '', '', 39px))
+    @include media('font-size',( 48px, '', '', '',26px))
+    @include media('line-height',( 72px, '', '', '', 39px))
 .about_h3
-    @include media('font-size',( 32px, '', '',18px))
-    @include media('line-height',( 48px, '', '', 24px))
+    @include media('font-size',( 32px, '', '', '',18px))
+    @include media('line-height',( 48px, '', '', '', 24px))
 .about_body
-    @include media('font-size',( 28px, '', 20px,16px))
-    @include media('line-height',( 34px, '', 26px, 20px))
+    @include media('font-size',( 28px, '', '', 20px,16px))
+    @include media('line-height',( 34px, '', '', 26px, 20px))
 .about_link
-    @include media('font-size',( 18px, '', 16px, 14px))
-    @include media('line-height',( 24px, '', 24px, 18px))
+    @include media('font-size',( 18px, '', '', 16px, 14px))
+    @include media('line-height',( 24px, '', '', 24px, 18px))
 
 .custom-container
     padding: 0 $aside-width
@@ -22,43 +22,47 @@ aside .hamburger .line, section.sidebar .hamburger .line
 
 .about
     & .content
-
+    & .footer
+        &--menu
+            @include media('height',( 100% , '', '', calc(100vh - 100px)))
     & .row
         display: flex
         flex-direction: row
     & .about--section_one
         position: relative
-        height: 100vh
         overflow: hidden
         z-index: 1
-        @include media('padding-left',( $aside-width , '', '', $aside-width/2))
-        @include media('padding-top',($about-top-padding, '', '', 0))
+        @include media('height',( 100vh , '', '', '', '', calc(100vh - 120px)))
+        @include media('padding-left',( $aside-width , '', '', 32px))
+        @include media('padding-top',($about-top-padding, '', '','', 0))
         &::before
             content: ""
             position: absolute
             left: 0
             bottom: 0
-            // height: 30vh
             width: 100%
             background-position: center
             background-size: cover
             background-image: url('./../img/about-header-bg.svg')
             background-repeat: no-repeat
-            height: 100%
-            // @include media('height',( 80vh , 80vh, 75vh, 65vh, 55vh, 40vh))
+            @include media('height',( 100% , '', '', '',50%, 25%))
         &__header
             z-index: 1
+            justify-content: center
+            align-items: flex-start
+            @include media('display',( block , '', '', '',flex, ''))
+            flex-direction: column
             & p.header
                 @extend .about_h1
                 padding-bottom: 60px
             & p.body
-                width: 600px
+                @include media('width',( 600px , '', '', auto))
                 @extend .about_h3
 
     & .about--section_two
         justify-content: space-between
         align-items: center
-        @include media('padding',( $aside-width , '', '', $aside-width/2))
+        @include media('padding',( $aside-width , '', '', 32px))
         @include media('flex-direction',( 'row' , '', '', column))
 
         &__text
@@ -69,13 +73,13 @@ aside .hamburger .line, section.sidebar .hamburger .line
             @include media('padding-top',( 0 , '', '', 40px))
 
     & .about--section_three
-        @include media('padding',( 0 $aside-width , '', '', 0 $aside-width/2))
+        @include media('padding',( 0 $aside-width , '', '', 0 32px))
         @include media('padding-bottom',( 160px , '', '', 80px))
         &__text
             @extend .about--section_two__text
 
     & .about--section_fourth
-        @include media('padding',( 0 $aside-width , '', '', 0 $aside-width/2))
+        @include media('padding',( 0 $aside-width , '', '', 0 32px))
         padding-bottom: 160px
         & #teamSwiper
             @include media('margin-bottom',( 160px , '', '', 160px))
@@ -106,7 +110,7 @@ aside .hamburger .line, section.sidebar .hamburger .line
 
     & .about--section_fifth
         @extend .about--section_three
-        padding-right: 320px
+        @include media('padding-right',( 320px , '', '', 32px))
         &__text
             @extend .about--section_two__text
 
@@ -115,17 +119,18 @@ aside .hamburger .line, section.sidebar .hamburger .line
         flex-direction: column
         padding-top: 0
 
-        @include media('padding',( 0 200px $aside-width 200px , '', '', 0 $aside-width/2 $aside-width/2 $aside-width/2))
+        @include media('padding',( 0 200px $aside-width 200px , '', '', 0 32px))
         &__header
             @extend .about_h1
-            padding: 0 40px
+            padding:
+            @include media('padding',( 0 40px , '','','', 0  ))
         &__body
             display: flex
 
             @include media('flex-direction',( 'row' , '', '', column))
             @include media('padding',( 60px 0 , '', '', 30px 0))
             & .right-side, & .left-side
-                width: 50%
-                padding: 40px
+                @include media('width',( 50% , '', '', 100%))
+                @include media('padding',( 40px , '', '', 0))
                 font-size: 16px
                 line-height: 24px
