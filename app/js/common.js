@@ -44,8 +44,8 @@ $("#products--slider").owlCarousel({
   margin: 140,
   responsive: {
     320: {
-      stagePadding: 20,
-      margin: 20,
+      stagePadding: 0,
+      margin: 0,
     },
     520: {
       stagePadding: 100,

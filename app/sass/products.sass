@@ -94,8 +94,9 @@ $grey-line-margin: 140px
                 background-position: right
                 display: flex
                 flex-direction: column
-                justify-content: center
-                align-items: center
+                @include media( justify-content, ( center, '', '', '', flex-end ))
+                @include media(align-items, ( center, '', '', '', flex-start ))
+                @include media(padding, ( 0, '', '', '', 55px 25px ))
                 &__1
                     background-image: url('../img/products/products/pr-1.jpg')
                 &__2
@@ -108,10 +109,12 @@ $grey-line-margin: 140px
                     display: none
                     &-header
                         @include body0
+                        @include media(padding-bottom, ( 0, '', '', '', 8px ))
                     & p:nth-child(2)
                         font-size: 18px
 
                         @include media(width, ( 400px, '', '', '', 280px ))
+                        @include media(display, ( block, '', '', '', none ))
                         padding: 20px 0
                     & a
                         color: #000

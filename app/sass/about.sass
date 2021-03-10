@@ -23,8 +23,10 @@ aside .hamburger .line, section.sidebar .hamburger .line
 .about
     & .content
     & .footer
+        height: 100%
         &--menu
-            @include media('height',( 100% , '', '', calc(100vh - 100px)))
+            height: calc(100vh - 140px)
+        // @include media('height',( 100% , '', '', calc(100vh - 100px)))
     & .row
         display: flex
         flex-direction: row

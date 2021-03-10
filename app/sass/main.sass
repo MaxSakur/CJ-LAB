@@ -80,12 +80,17 @@ footer
 	flex-direction: column
 	align-items: stretch
 	padding: 20px 0
-
 	& .footer
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		height: 100%
 		@include media('margin-left',( $aside-width , '', '', 40px))
 		&--menu
-			@include media('height',( 100% , '', '', calc(100vh - 400px)))
+			// @include media('height',( 100% , '', '', calc(100vh - 400px)))
+			@include media('height',( 100% , '', '', '', ''))
 			display: flex
+			flex: 1
 			flex-direction: column
 			align-items: flex-start
 			justify-content: center
@@ -112,7 +117,7 @@ footer
 		&--bottom
 			padding-bottom: 40px
 			display: flex
-			@include media('margin',(  0 65px , '', '', '', 0))
+			@include media('margin-left',(  -140px , '', ' ',0, '', ''))
 			@include media('flex-direction',( row , '', '', column))
 			& a
 				@include media('white-space',( nowrap , '', '', wrap))
@@ -184,12 +189,13 @@ footer
 		background-image: url(../img/index-bg/index-5bg.jpg)
 	& .s_item
 		display: flex
-		height: 100%
 		width: 100vw
 		align-items: center
+		height: 100vh
+		overflow: hidden
 		@include media(padding-top, (0,'','','', 120px,'', ''))
 		@include media(flex-direction, ('row', '', '', '', 'column' ))
-		@include media(justify-content, (inherit, '', '', '', 'flex-start' ))
+		@include media(justify-content, (inherit, '', '', '', 'flex-end' ))
 		&--text
 			max-width: 50vw
 			z-index: 2
@@ -234,12 +240,12 @@ footer
 				display: flex
 				flex-direction: column
 				@include media(flex, (1,'','','','',0))
-				@include media(transform, (scale(1),'','','','',scale(0.8)))
+				// @include media(transform, (scale(1),'','','','',scale(0.8)))
 				& img.ios-phone
 
-					@include media(width, ( 20vw, '', '',  30vw, '' ))
-					@include media(height, ( 20vw, '', '',  30vw, '' ))
-					@include media(left, (5vw, '', '', '', '' ))
+					@include media(width, ( 20vw, '', '',  40vw, '' ))
+					@include media(height, ( 20vw, '', '',  40vw, '' ))
+					@include media(left, (5vw, '', '', '', '', 10vw ))
 					@include media(bottom, (50%, '', '', inherit, '' ))
 					@include media(position, (absolute, '', '', relative, '' ))
 				& img.hand
@@ -250,7 +256,7 @@ footer
 				display: flex
 				flex-direction: column
 				@include media(flex, (1,'','','','',0))
-				@include media(transform, (scale(1),'','','','',scale(0.8)))
+				// @include media(transform, (scale(1),'','','','',scale(0.8)))
 				& img.plane
 					height: 10vw
 					position: absolute
@@ -280,13 +286,13 @@ footer
 					width: auto
 					z-index: -1
 					max-width: inherit
-					@include media(left, ( -25vw, '', '', -90vw, '' ))
+					@include media(left, ( -25vw, '', '', -100vw, '' ))
 				& img.girl-overlay
 					z-index: 1
 					height: 100%
 					position: absolute
 					max-width: inherit
-					@include media(left, (-25vw, '', '', -90vw, '' ))
+					@include media(left, (-25vw, '', '', -100vw, '' ))
 
 // END
 .all
