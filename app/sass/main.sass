@@ -171,14 +171,15 @@ footer
 
 .swiper-container
 	width: 100vw
-	height: 100vh
+	height: 100%
+	overflow: hidden
 .swiper-slide
 	background: #fff
 	display: flex
 	flex-direction: row
 	justify-content: center
-	align-items: center
 	height: 100%
+	@include media(align-items, (center, '', '', '', 'flex-end' ))
 	& footer
 		background-image: none
 	& .s_item_footer
@@ -186,14 +187,17 @@ footer
 		position: relative
 		background-position: center
 		background-image: url(../img/index-bg/index-5bg.jpg)
-
+	& .s_item_1, & .s_item_3
+		& .s_item--text
+			@include media(flex, (1,'','','','',2))
 	& .s_item
 		display: flex
 		width: 100vw
 		align-items: center
-		height: 100%
 		overflow: hidden
-		@include media(padding-bottom, (0,'','','', '',140px))
+
+		@include media(height, ( 100%, '', '',  '', calc(100% - 100px) ))
+		@include media(padding-bottom, (0,'','','', '', 0))
 		@include media(flex-direction, ('row', '', '', '', 'column' ))
 		@include media(justify-content, (inherit, '', '', '', 'space-between' ))
 		&--text
@@ -202,15 +206,19 @@ footer
 			padding: 0 32px
 			display: flex
 			flex: 1
-			align-items: flex-end
 			justify-content: flex-end
+			@include media(align-items, (flex-end, '', '', '', center ))
 			@include media(max-width, (50vw, '', '', '', inherit ))
-			@include media(padding-left, (160px, '', '', 60px, 32px ))
-			@include media(padding-bottom, (140px, '', '', 20px, '' ))
+			@include media(padding-left, (160px, '', '', 60px, 18px ))
+			@include media(padding-bottom, (140px, '', '', 20px, 0 ))
 			& p.h1
 				font-family: 'mont'
+				// font-weight: 100
+				@include media(font-size, (48px, 48px, 38px, 34px, 32px, 22px))
+				@include media(line-height, (64px, '', '', 64px, 40px, 26px))
 			& p:nth-child(2)
-				@include media(padding-top, (40px, '', '', 20px, '' ))
+				@include media(padding-top, (40px, '', '', 20px, 12px, '' ))
+				@include media(line-height, (48px, 48px, 38px, 34px, 32px, 22px))
 		&--images
 			flex: 1
 			height: 100%
@@ -241,60 +249,68 @@ footer
 			&.hand-ios-img-block
 				display: flex
 				flex-direction: column
-				@include media(flex, (1,'','','','',0))
+				@include media(flex, (1,'','','','', ''))
+				@include media(width, (inherit, '', '',  100%, '' ))
 				// @include media(transform, (scale(1),'','','','',scale(0.8)))
+				@include media(align-items, (inherit, '', '', flex-end , '' ))
 				& img.ios-phone
-
-					@include media(width, ( 20vw, '', '',  40vw, '' ))
-					@include media(height, ( 20vw, '', '',  40vw, '' ))
-					@include media(left, (5vw, '', '', '', '', 10vw ))
+					@include media(width, ( 20vw, '', '',  25vw, '' ))
+					@include media(height, ( 20vw, '', '',  25vw, '' ))
+					@include media(left, (5vw, '', '', '', '', -50vw ))
 					@include media(bottom, (50%, '', '', inherit, '' ))
 					@include media(position, (absolute, '', '', relative, '' ))
 				& img.hand
 					bottom: 0
 					right: 0
-					@include media(position, (absolute, '', '', relative, '' ))
+					@include media(position, (absolute, '', '', relative , '' ))
+					@include media(width, ( inherit, '', '',  250px, '' ))
 			&.hand-plane-img-block
 				display: flex
 				flex-direction: column
 				@include media(flex, (1,'','','','',0))
-				// @include media(transform, (scale(1),'','','','',scale(0.8)))
+				@include media(width, (inherit, '', '',  100%, '' ))
+				@include media(align-items, (inherit, '', '', flex-end , '' ))
 				& img.plane
 					height: 10vw
 					position: absolute
 					z-index: -1
-					left: 20px
-					@include media(top, (120px, '', '', 0, '' ))
-
+					@include media(top, (120px, '', '', 20px, '' ))
+					@include media(left, (20px, '', '', 75px, '' ))
 				& img.plane-dot
-
 					position: absolute
 					z-index: -1
 					@include media(bottom, (150px, '', '', 120px, 50px ))
-					@include media(height, (18vw, '', '', 150px, '' ))
-					@include media(width, (18vw, '', '', 150px, '' ))
+					@include media(height, (18vw, '', '', 150px, 100px ))
+					@include media(width, (18vw, '', '', 150px, 100px ))
 					right: 100px
-				&.hand_with_phone
+				& .hand_with_phone
 					position: relative
+					@include media(width, ( inherit, '', '',  250px, '' ))
+					@include media(padding-top, (0, '', '', '', 40px, '' ))
 					z-index: 1
 			&.girl-img-block
 				position: relative
-
+				@include media(width, (inherit, '', '',  100%, '' ))
+				@include media(align-items, (inherit, '', '', flex-end , '' ))
+				@include media(padding-top, (0, '', '', '', 80px, '' ))
 				& img.girl
 					position: absolute
 					bottom: 0
 					top: 0
-					height: 100%
-					width: auto
+					@include media(height, ( 100%, '', '',  '', auto ))
+					@include media(width, ( auto, '', '',  '', 100% ))
 					z-index: -1
 					max-width: inherit
-					@include media(left, ( -25vw, '', '', -100vw, '' ))
+					@include media(left, ( -25vw, '', '', -100vw, inherit ))
 				& img.girl-overlay
 					z-index: 1
 					height: 100%
 					position: absolute
 					max-width: inherit
-					@include media(left, (-25vw, '', '', -100vw, '' ))
+					top: 0
+					@include media(height, ( 100%, '', '',  '', auto ))
+					@include media(width, ( auto, '', '',  '', 100% ))
+					@include media(left, (-25vw, '', '', -100vw,  inherit))
 
 // END
 .all
