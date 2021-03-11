@@ -127,7 +127,31 @@ h2.h2
     flex-direction: row
 .flex-toggle
     display: flex
-    @include media('flex-direction',( row , '', '', '', column))
+    @include media('flex-direction',( row , '', '', '', '', column))
+    & .text
+        display: flex
+        justify-content: center
+        @include media('flex',( 3, '', '', '', 2))
+        @include media('padding',( 0 120px , 0 40px, '', '', 0))
+        & .list-with-header
+            position: relative
+            height: 100%
+            justify-content: center
+            display: flex
+            flex-direction: column
+            @include media('width',( 400px ,'', auto, '', ''))
+            @include media('padding',( 0 ,'', '', '', '', 40px 0))
+            & .header
+                position: relative
+                width: 100%
+                @include body0
+            & ul
+                padding-left: 25px
+                li
+                    list-style-type: disc
+
+    & .image
+        flex: 2
 
 .default-owl-theme
     & .owl-dots

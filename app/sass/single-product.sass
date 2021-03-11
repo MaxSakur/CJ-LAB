@@ -1,11 +1,12 @@
 @import './_vars'
+
 .product-one
     .first-screen
         background-image: url('../img/products/products/pr-1/bg.jpg')
         & .text--content
             @include media(justify-content, (flex-start !important, '', '', '', flex-end!important ))
             @include media(padding-top, ( 90px, '', '', '', 0 ))
-            @include media(padding-bottom, ( 0, '', '', '', 90px ))
+            @include media(padding-bottom, ( 0, '', '', '', 30vh ))
     .section-image
         &-1
             background-image: url('../img/products/products/pr-1/bg-1.jpg')
@@ -37,7 +38,7 @@
         & .text--content
             @include media(justify-content, (flex-start !important, '', '', '', flex-end !important ))
             @include media(padding-top, ( 90px, '', '', '', 0 ))
-            @include media(padding-bottom, ( 0, '', '', '', 90px ))
+            @include media(padding-bottom, ( 0, '', '', '', 140px ))
 
     .section-image
         &-1
@@ -51,6 +52,28 @@
 
 #single-product
     position: relative
+    &  .shadow
+        @include media(font-size, (400px, 380px, 360px, 340px, 320px ))
+        position: absolute
+        left: -120px
+        bottom: 80px
+        z-index: -1
+        color: $grey
+        opacity: .3
+        font-weight: 400
+        @include media(display, (block, '', '', '', none ))
+    & .full-width-component
+        display: flex
+        align-items: center
+        justify-content: center
+        & .list-with-header
+            position: relative
+            & .shadow
+                left: -80px
+                bottom: 0
+    & button
+        border: 1px solid #bdbdbd
+
     footer
         height: 100vh
         min-height: 100vh
@@ -60,19 +83,6 @@
                 margin: 0
         &--menu
             height: 100%
-            // height: calc(100vh - 140px)
-        // @include media('height',( 100% , '', '', calc(100vh - 100px)))
-    & .screen
-
-        overflow: auto
-    .list-with-header
-
-        width: 100%
-        @include media(padding, (0 40px, '', '', '', '', 80px 0))
-        & .header
-            position: relative
-            width: 100%
-            @include body0
 
     & .first-screen
         width: 100%
@@ -136,8 +146,7 @@
     // SIXTH SCREEN
     & .sixth-screen
         & .list-with-header
-            width: 100%
-
+            position: relative
             & ul
                 padding-left: 10px
                 & li
@@ -157,7 +166,6 @@
         & button
             width: 200px
             background-color: transparent
-            border: 1px solid $grey
             padding: 20px 45px
             border-radius: 30px
             margin-top: 55px

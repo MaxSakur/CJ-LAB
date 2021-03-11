@@ -70,21 +70,20 @@ ul li
 	height: 100%
 
 footer
-	height: 100%
 	width: 100%
+	height: 100%
 	position: relative
 	background-position: center
 	background-image: url(../img/index-bg/index-5bg.jpg)
-	height: 100%
 	display: flex
 	flex-direction: column
 	align-items: stretch
 	padding: 20px 0
 	& .footer
 		display: flex
+		flex: 1
 		flex-direction: column
 		justify-content: space-between
-		height: 100%
 		@include media('margin-left',( $aside-width , '', '', 40px))
 		&--menu
 			// @include media('height',( 100% , '', '', calc(100vh - 400px)))
@@ -183,26 +182,29 @@ footer
 	& footer
 		background-image: none
 	& .s_item_footer
-		height: 100vh
+		// height: 100%
 		position: relative
 		background-position: center
 		background-image: url(../img/index-bg/index-5bg.jpg)
+
 	& .s_item
 		display: flex
 		width: 100vw
 		align-items: center
-		height: 100vh
+		height: 100%
 		overflow: hidden
-		@include media(padding-top, (0,'','','', 120px,'', ''))
+		@include media(padding-bottom, (0,'','','', '',140px))
 		@include media(flex-direction, ('row', '', '', '', 'column' ))
-		@include media(justify-content, (inherit, '', '', '', 'flex-end' ))
+		@include media(justify-content, (inherit, '', '', '', 'space-between' ))
 		&--text
 			max-width: 50vw
 			z-index: 2
 			padding: 0 32px
-			@include media(flex, (1,'','','','',0))
+			display: flex
+			flex: 1
+			align-items: flex-end
+			justify-content: flex-end
 			@include media(max-width, (50vw, '', '', '', inherit ))
-
 			@include media(padding-left, (160px, '', '', 60px, 32px ))
 			@include media(padding-bottom, (140px, '', '', 20px, '' ))
 			& p.h1
